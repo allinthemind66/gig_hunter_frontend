@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: rgb(218, 237, 246);
 }
 
 .navbar {
@@ -18,7 +19,7 @@ body {
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: .5rem 1rem;
-    background-color: grey;
+    background-color: #FF5E5B
 }
 
 .navbar-brand {
