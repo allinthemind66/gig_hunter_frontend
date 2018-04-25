@@ -4,10 +4,10 @@ import React from 'react'
 // import {Map, GoogleApiWrapper} from 'google-maps-react'
 class GigPage extends React.Component {
   render(){
-    const style = {
-  width: '30%',
-  height: '30%'
-}
+  //   const style = {
+  // width: '30%',
+  // height: '30%'
+// }
     return(
       <div>
         <h1>This is the Gig Page</h1>
