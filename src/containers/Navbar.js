@@ -7,8 +7,8 @@ export default class Navbar extends React.Component {
         <nav className="navbar navbar-light">
           <span className="navbar-brand mb-0 h1"><h1><a href='/'>Gig Hunter</a></h1></span>
           <span>
-            <button className='ui blue button' id="all-trips">Home</button>
-            <button className='ui blue button' id="add-trip">Search Gigs</button>
+            <a href="/"><button className='ui blue button' id="all-trips">Home</button></a>
+            <a href='/gig-page'><button className='ui blue button' id="add-trip">Search Gigs</button></a>
             <button className='ui blue button' id="add-trip">Post Gig</button>
             <button className='ui blue button' id="add-trip">Logout</button>
           </span>
