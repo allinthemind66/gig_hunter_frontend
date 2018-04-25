@@ -43,3 +43,8 @@ body {
 .trip-div:hover{
   cursor: pointer;
 }
+
+.avatar {
+  max-width: 300px;
+
+}

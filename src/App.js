@@ -6,7 +6,7 @@ import Login from './containers/Login'
 import SignUp from './containers/SignUp'
 import Home from './containers/Home'
 import GigPage from './containers/GigPage'
-
+import UserPage from './containers/UserPage'
 class App extends Component {
   render() {
     return (
@@ -15,7 +15,7 @@ class App extends Component {
           <Navbar />
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signUp" component={SignUp}/>
-
+          <Route exact path="/user/1" component={UserPage}/>
           <Route exact path="/" component={Home} />
           <Route exact path="/gig-page" component={GigPage}/>
         </div>
