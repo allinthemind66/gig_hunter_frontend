@@ -4,8 +4,12 @@ const UserGigs = () => {
     <div>
       <h3>Upcoming Gigs</h3>
       <ul>
-        <li> Gig 1 </li>
-        <li> Gig 2 </li>
+        <div>
+        <a href='/gigs/1'><p> Gig 1 </p></a>
+      </div>
+      <div>
+        <p> Gig 2 </p>
+      </div>
       </ul>
     </div>
   )
