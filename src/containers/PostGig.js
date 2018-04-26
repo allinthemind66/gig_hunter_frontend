@@ -12,14 +12,19 @@ export default class PostGig extends React.Component {
   handleOnChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    })
+    }, () => console.log(this.state))
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    
   }
 
   render(){
     return(
       <div>
         <h3>Post Gig</h3>
-        <form className="ui form">
+        <form onSubmit={this.handleSubmit} className="ui form">
           <label>Name</label>
           <input type="text" name="name" value={this.state.name} onChange={this.handleOnChange}/>
           <label>Location</label>
@@ -27,9 +32,10 @@ export default class PostGig extends React.Component {
           <label>Group</label>
           <input type="text" name="group" value={this.state.group} onChange={this.handleOnChange}/>
           <label>Time</label>
-          <input type="time" name="group" value={this.state.time} />
+          <input type="time" name="time" value={this.state.time} onChange={this.handleOnChange}/>
           <label>Date</label>
-          <input type="date" name="group" value={this.state.date} />
+          <input type="date" name="date" onChange={this.handleOnChange}/>
+          <input type='submit'/>
         </form>
       </div>
     )

@@ -1,7 +1,5 @@
 import React from 'react'
-import {Navlink} from 'react-router-dom'
-// TODO: Look into Navlink and Link for correct routing procedure
-
+import {NavLink} from 'react-router-dom'
 export default class Navbar extends React.Component {
   render(){
     return(
@@ -9,14 +7,10 @@ export default class Navbar extends React.Component {
         <nav className="navbar navbar-light">
           <span className="navbar-brand mb-0 h1"><h1><a href='/'>Gig Hunter</a></h1></span>
           <span>
-            <Navlink to='/'>Home</Navlink>
-            <Navlink to='/'>Home</Navlink>
-            <Navlink to='/'>Home</Navlink>
-
-            {/* <a href="/"><button className='ui blue button' id="all-trips">Home</button></a> */}
-            {/* <a href='/gigSearch'><button className='ui blue button' id="add-trip">Search Gigs</button></a>
-            <a href='/postGig'><button className='ui blue button' id="add-trip">Post Gig</button></a>
-            <button className='ui blue button' id="add-trip">Logout</button> */}
+            <NavLink className='ui blue button' to='/'>Home</NavLink>
+            <NavLink className='ui blue button' to='/gigSearch'>Search Gigs</NavLink>
+            <NavLink className='ui blue button' to='/postGig'>Post Gig</NavLink>
+            <NavLink className='ui blue button' to='/'>Logout</NavLink>
           </span>
         </nav>
       </div>

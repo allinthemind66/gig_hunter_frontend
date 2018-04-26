@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import gigs from './gigs'
-import session from './sessionReducer'
+import users from './users'
 export default combineReducers({
-  session,
-  gigs
+  gigs,
+  users
 })

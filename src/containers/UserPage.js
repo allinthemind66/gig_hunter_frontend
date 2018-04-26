@@ -2,15 +2,41 @@ import React from 'react'
 import UserGigs from '../components/UserGigs'
 import UserAvatar from '../components/UserAvatar'
 import UserBio from '../components/UserBio'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../actions/userActions'
+class UserPage extends React.Component {
 
-export default class UserPage extends React.Component {
+  componentDidMount = () => {
+    console.log('the component did mount in userPage')
+    this.props.actions.fetchUserData()
+  }
   render(){
+    // debugger
     return(
       <div><h1>This is an individual User page page</h1>
-      {<UserAvatar/>}
-      {<UserBio/>}
+      {<UserAvatar name={this.props.user.name}/>}
+      {<UserBio user={this.props.user}/>}
       {<UserGigs/>}
       </div>
     )
   }
 }
+
+
+const mapStateToProps = (state) => {
+  return {user: state.users.userData}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+
+// const mapDispatchToProps = (dispatch) => {
+//   return bindActionCreators({
+//     actions: actions
+//   }, dispatch)
+// }
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserPage)
