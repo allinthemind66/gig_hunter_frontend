@@ -1,8 +1,9 @@
-export default (state=[], action) => {
+export default (state = {loading: false, gigsData: {}}, action) => {
   switch(action.type){
-    case("TEST_REDUCER"):
-      console.log('im in the gigs reducer!')
-      return state
+    case("START_FETCHING_GIGS_REQUEST"):
+      return {...state, loading: true}
+    case('FETCH_GIGS'):
+      return {...state, loading:false, gigsData: action.payload}
     default:
       return state
   }

@@ -3,6 +3,6 @@ export function fetchAllGigs() {
     dispatch({ type: 'START_FETCHING_GIGS_REQUEST' });
     return fetch('http://localhost:3000/api/v1/gigs')
       .then(resp => resp.json())
-      .then(user => dispatch({ type: 'FETCH_USER', payload: user }));
+      .then(gigs => dispatch({ type: 'FETCH_GIGS', payload: gigs }));
   };
 }
