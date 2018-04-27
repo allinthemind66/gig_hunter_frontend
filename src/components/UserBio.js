@@ -1,7 +1,6 @@
 import React from 'react'
 const UserBio = (props) => {
 
-  // let instruments = props.user.instruments.map(instrument => <li>{instrument.name}</li>)
   return(
     <div>
       <p>{props.user.bio}</p>

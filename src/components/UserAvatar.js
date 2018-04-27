@@ -1,6 +1,6 @@
 import React from 'react'
 const UserAvatar = (props) => {
-  // debugger
+
   return(
     <div>
       <img className="avatar" src={require('../testImages/Rick.JPG')} alt="user_img"/>

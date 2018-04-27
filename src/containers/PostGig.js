@@ -19,8 +19,15 @@ class PostGig extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.props.actions)
     this.props.actions.postGig(this.state)
+    this.setState = {
+      name: '',
+      location: '',
+      group: '',
+      time: '',
+      date: ''
+    }
+    this.props.history.push('/gigSearch')
   }
 
   render(){

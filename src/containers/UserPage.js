@@ -12,7 +12,6 @@ class UserPage extends React.Component {
     this.props.actions.fetchUserData()
   }
   render(){
-    // debugger
     return(
       <div><h1>This is an individual User page page</h1>
       {<UserAvatar name={this.props.user.name}/>}
@@ -31,12 +30,5 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {actions: bindActionCreators(actions, dispatch)}
 }
-
-
-// const mapDispatchToProps = (dispatch) => {
-//   return bindActionCreators({
-//     actions: actions
-//   }, dispatch)
-// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserPage)
