@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import * as actions from '../actions/gigsActions'
 import * as userActions from '../actions/userActions'
 import { bindActionCreators } from 'redux'

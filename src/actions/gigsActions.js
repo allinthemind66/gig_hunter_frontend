@@ -30,3 +30,12 @@ export function postGig(gig){
     }).then(resp => resp.json()).then(gigs => dispatch({type: 'FETCH_GIGS', payload: gigs}))
   }
 }
+
+export function fetchGigData(gigId){
+  return (dispatch) => {
+    dispatch({type: "START_FETCHING_GIG"})
+    return fetch(`http://localhost:3000/api/v1/gigs/${gigId}`)
+    .then(resp => resp.json())
+    .then(gig => dispatch({type: 'FETCH_GIG', payload: gig}))
+  }
+}

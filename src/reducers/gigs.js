@@ -1,4 +1,4 @@
-export default (state = {loading: false, gigsData: {}}, action) => {
+export default (state = {loading: false, gigsData: {}, gig: {}}, action) => {
   switch(action.type){
     case("START_FETCHING_GIGS_REQUEST"):
       return {...state, loading: true}
@@ -10,6 +10,10 @@ export default (state = {loading: false, gigsData: {}}, action) => {
       return state
     case("START_POSTING_GIG"):
       return {...state, loading: true}
+    case("START_FETCHING_GIG"):
+      return {...state, loading: true}
+    case("FETCH_GIG"):
+      return {...state, gig: action.payload}
     default:
       return state
   }
