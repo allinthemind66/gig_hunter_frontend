@@ -1,9 +1,9 @@
 import React from 'react'
 const UserAvatar = (props) => {
-
+  // debugger
   return(
     <div>
-      <img className="avatar" src={require('../testImages/Rick.JPG')} alt="user_img"/>
+      {props.name ? <img className="avatar" src={require(`../userImgs/${props.name}.JPG`)} alt="user_img"/> : null}
       <h4>{props.name}</h4>
     </div>
   )

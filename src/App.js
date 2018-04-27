@@ -17,7 +17,7 @@ class App extends Component {
           <Navbar />
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signUp" component={SignUp}/>
-          <Route exact path="/user/1" component={UserPage}/>
+          <Route exact path="/user/:id" component={UserPage}/>
           <Route exact path="/gigs/:id" component={GigPage}/>
           <Route exact path="/gigSearch" component={GigSearch}/>
           <Route exact path="/" component={Home} />

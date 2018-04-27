@@ -8,7 +8,8 @@ class PostGig extends React.Component {
     location: '',
     group: '',
     time: '',
-    date: ''
+    date: '',
+    description: ''
   }
 
   handleOnChange = (e) => {

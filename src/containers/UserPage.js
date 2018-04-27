@@ -8,8 +8,10 @@ import * as actions from '../actions/userActions'
 class UserPage extends React.Component {
 
   componentDidMount = () => {
+    // debugger
+    const id = this.props.match.params.id
     console.log('the component did mount in userPage')
-    this.props.actions.fetchUserData()
+    this.props.actions.fetchUserData(id)
   }
   render(){
     return(
