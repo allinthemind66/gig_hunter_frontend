@@ -1,6 +1,8 @@
 import React from 'react'
-
-export default class PostGig extends React.Component {
+import * as actions from '../actions/gigsActions'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+class PostGig extends React.Component {
   state = {
     name: '',
     location: '',
@@ -17,7 +19,8 @@ export default class PostGig extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    
+    console.log(this.props.actions)
+    this.props.actions.postGig(this.state)
   }
 
   render(){
@@ -41,3 +44,9 @@ export default class PostGig extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(null, mapDispatchToProps)(PostGig)
