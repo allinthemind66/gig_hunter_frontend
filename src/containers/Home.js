@@ -1,5 +1,5 @@
 import React from 'react'
-import UserGigs from '../components/UserGigs'
+import HomeUserGigs from '../components/HomeUserGigs'
 import UserAvatar from '../components/UserAvatar'
 import * as actions from '../actions/userActions'
 import {bindActionCreators } from 'redux'
@@ -13,7 +13,7 @@ class Home extends React.Component {
     return(
       <div><h1>This is the user home page</h1>
       {<UserAvatar/>}
-      {<UserGigs gigs={this.props.user.gigs}/>}
+      {<HomeUserGigs gigs={this.props.user.gigs}/>}
       </div>
     )
   }
