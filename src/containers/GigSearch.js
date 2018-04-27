@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Route } from "react-router-dom";
+import { Link} from "react-router-dom";
 import * as actions from '../actions/gigsActions'
 import * as userActions from '../actions/userActions'
 import { bindActionCreators } from 'redux'
@@ -14,7 +14,7 @@ class GigSearch extends React.Component {
     // console.log('trying to add gig')
     // console.log(gig);
     // this.props.userActions.addGigToUser(gig)
-    fetch('http://localhost:3000/api/v1/users/',{
+    fetch(`http://localhost:3000/api/v1/user_gigs/`,{
       method: 'POST',
       body: JSON.stringify(gig),
       headers: ({

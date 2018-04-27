@@ -3,7 +3,7 @@ const UserAvatar = (props) => {
   // debugger
   return(
     <div>
-      {props.name ? <img className="avatar" src={require(`../userImgs/defaultImg.png`)} alt="user_img"/> : null}
+      <img className="avatar" src={require(`../userImgs/defaultImg.png`)} alt="user_img"/>
       <h4>{props.name}</h4>
     </div>
   )
