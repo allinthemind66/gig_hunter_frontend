@@ -5,15 +5,12 @@ import * as userActions from '../actions/userActions'
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
 class GigSearch extends React.Component {
+  
   componentDidMount = () => {
     this.props.actions.fetchAllGigs()
   }
 
   handleAddGig = (gig) => {
-    // debugger
-    // console.log('trying to add gig')
-    // console.log(gig);
-    // this.props.userActions.addGigToUser(gig)
     fetch(`http://localhost:3000/api/v1/user_gigs/`,{
       method: 'POST',
       body: JSON.stringify(gig),

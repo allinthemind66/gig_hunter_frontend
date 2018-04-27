@@ -20,7 +20,7 @@ class UserPage extends React.Component {
       <div><h1>This is an individual User page page</h1>
       {<UserAvatar name={this.props.user.name}/>}
       {<UserBio user={this.props.user}/>}
-      {<UserGigs/>}
+      {<UserGigs gigs={this.props.user.gigs}/>}
       </div>
     )
   }

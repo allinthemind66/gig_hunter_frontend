@@ -18,7 +18,6 @@ export function fetchAllGigs() {
 
 
 export function postGig(gig){
-  // debugger
   return (dispatch) => {
     dispatch({type: 'START_POSTING_GIG'})
     return fetch('http://localhost:3000/api/v1/gigs', {
