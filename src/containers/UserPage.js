@@ -13,6 +13,8 @@ class UserPage extends React.Component {
     console.log('the component did mount in userPage')
     this.props.actions.fetchUserData(id)
   }
+
+
   render(){
     return(
       <div><h1>This is an individual User page page</h1>
