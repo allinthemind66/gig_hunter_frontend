@@ -36,7 +36,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GigPage)
-
-// export default GoogleApiWrapper({
-//    apiKey: apikey()
-//  })(GigPage)

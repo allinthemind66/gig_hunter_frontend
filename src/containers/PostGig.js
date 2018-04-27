@@ -30,6 +30,8 @@ class PostGig extends React.Component {
         <form onSubmit={this.handleSubmit} className="ui form">
           <label>Name</label>
           <input type="text" name="name" value={this.state.name} onChange={this.handleOnChange}/>
+          <label>description</label>
+          <textarea type="text-area" name="description" value={this.state.description} onChange={this.handleOnChange}/>
           <label>Location</label>
           <input type="text" name="location" value={this.state.location} onChange={this.handleOnChange}/>
           <label>Group</label>
