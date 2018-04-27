@@ -7,14 +7,17 @@ export function fetchUserData(id) {
   };
 }
 
-// export function addGigToUser(gig){
-//   return (dispatch) => {
-//     dispatch({type: 'START_ADDING_GIG_TO_USER'})
-//     return fetch("http://localhost:3000/api/v1/users/1",
-//     method: 'POST',
-//     body: JSON.stringify(gig),
-//     headers: ({
-//     'Content-Type': 'application/json'
-//   }))
-//   }
-// }
+export function addGigToUser(gig){
+  return (dispatch) => {
+    dispatch({type: 'START_ADDING_GIG_TO_USER'})
+    return fetch(`http://localhost:3000/api/v1/user_gigs/`,{
+      method: 'POST',
+      body: JSON.stringify(gig),
+      headers: ({
+        'Content-Type': 'application/json'
+      })
+    })
+    .then(resp => resp.json())
+    .then(gig => dispatch({type: 'ADD_GIG_TO_USER', payload: gig}))
+  }
+}
