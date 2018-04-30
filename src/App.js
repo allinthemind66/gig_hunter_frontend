@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/Navbar.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from './actions/authActions'
 import Login from './containers/Login'
 import SignUp from './containers/SignUp'
 import Home from './containers/Home'
@@ -9,13 +12,28 @@ import GigPage from './containers/GigPage'
 import UserPage from './containers/UserPage'
 import PostGig from './containers/PostGig'
 import GigSearch from './containers/GigSearch'
+import {api} from './services/api'
 class App extends Component {
+
+  componentDidMount(){
+    const token = localStorage.getItem('token')
+    if(token){
+      api.auth.getCurrentUser().then(resp => {
+        console.log(resp)
+        const currentUser = {user: resp}
+        this.props.actions.handleMounting(currentUser)
+      })
+    }
+  }
+
   render() {
+    // debugger
     return (
       <Router>
         <div className="app">
-          <Navbar />
-          <Route exact path="/login" component={Login}/>
+          {this.props.currentUser.id ? <Navbar /> : null}
+          {/* <Navbar /> */}
+          <Route exact path="/login" render={props =>{return <Login {...props}/>}  }/>
           <Route exact path="/signUp" component={SignUp}/>
           <Route exact path="/user/:id" component={UserPage}/>
           <Route exact path="/gigs/:id" component={GigPage}/>
@@ -28,5 +46,12 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {currentUser: state.auth.currentUser}
+}
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

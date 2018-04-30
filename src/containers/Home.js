@@ -6,14 +6,26 @@ import {bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 class Home extends React.Component {
   componentDidMount(){
-    let id = 1
-    this.props.actions.fetchUserData(id)
+
+    const token = localStorage.getItem('token')
+    if(!token){
+      this.props.history.push('/login')
+    }
+    else{
+      let id = 1
+      this.props.actions.fetchUserData(id)
+    }
+  }
+
+  handleRemoveGig = (gig) => {
+    console.log('remove gig has been clicked!')
+    console.log(gig)
   }
   render(){
     return(
       <div><h1>This is the user home page</h1>
       {<UserAvatar/>}
-      {<HomeUserGigs gigs={this.props.user.gigs}/>}
+      {<HomeUserGigs handleRemoveGig={this.handleRemoveGig} gigs={this.props.user.gigs}/>}
       </div>
     )
   }

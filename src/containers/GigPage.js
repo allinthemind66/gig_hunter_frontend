@@ -5,9 +5,15 @@ import {connect} from 'react-redux'
 class GigPage extends React.Component {
 
   componentDidMount = () =>{
-    const id = this.props.match.params.id
-    this.props.actions.fetchGigData(id)
-  }
+    const token = localStorage.getItem('token')
+    if(!token){
+      this.props.history.push('/login')
+    }
+    else{
+      const id = this.props.match.params.id
+      this.props.actions.fetchGigData(id)
+    }
+}
 
   render(){
     return(

@@ -1,7 +1,11 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
-export default class Navbar extends React.Component {
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../actions/authActions'
+class Navbar extends React.Component {
   render(){
+    // debugger
     return(
       <div>
         <nav className="navbar navbar-light">
@@ -10,10 +14,20 @@ export default class Navbar extends React.Component {
             <NavLink className='ui blue button' to='/'>Home</NavLink>
             <NavLink className='ui blue button' to='/gigSearch'>Search Gigs</NavLink>
             <NavLink className='ui blue button' to='/postGig'>Post Gig</NavLink>
-            <NavLink className='ui blue button' to='/'>Logout</NavLink>
+            <NavLink className='ui blue button' to='/login' onClick={this.props.actions.handleLogout}>Logout</NavLink>
           </span>
         </nav>
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {currentUser: state.auth.currentUser}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

@@ -1,9 +1,13 @@
 import React from 'react'
-
-export default class Login extends React.Component {
+import {api} from '../services/api'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../actions/authActions'
+class Login extends React.Component {
   state = {
     username: '',
-    password: ''
+    password: '',
+    error: false
   }
 
   handleOnChange = (e) => {
@@ -11,18 +15,47 @@ export default class Login extends React.Component {
       [e.target.name]: e.target.value
     })
   }
+  handleOnSubmit = (e) => {
+    e.preventDefault();
+    api.auth.login(this.state).then(user => {
+      if(user.message){
+        this.setState({error: true})
+      }
+      else{
+        this.setState({error: false})
+        this.props.actions.handleLogin(user)
+        this.props.history.push('/')
+      }
+    })
+  }
+
+
   render(){
+    // debugger
+    // console.log(this.props.user)
     return(
       <div>
         <h2>Welcome Back!</h2>
         <h3>Sign In!</h3>
-        <form className="ui form">
+        {this.state.error ? <p>There is an error</p> : null}
+        <form onSubmit={this.handleOnSubmit} className="ui form">
           <label>Username</label>
           <input type="text" name="username" value={this.state.username} onChange={this.handleOnChange}/>
           <label>Password</label>
           <input type="text" name="password" value={this.state.password} onChange={this.handleOnChange}/>
+          <input type="submit"/>
         </form>
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {currentUser: state.auth.currentUser}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

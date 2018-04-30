@@ -12,6 +12,13 @@ class PostGig extends React.Component {
     description: ''
   }
 
+  componentDidMount = () => {
+      const token = localStorage.getItem('token')
+      if(!token){
+        this.props.history.push('/login')
+      }
+  }
+
   handleOnChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -38,7 +45,7 @@ class PostGig extends React.Component {
         <form onSubmit={this.handleSubmit} className="ui form">
           <label>Name</label>
           <input type="text" name="name" value={this.state.name} onChange={this.handleOnChange}/>
-          <label>description</label>
+          <label>Description</label>
           <textarea type="text-area" name="description" value={this.state.description} onChange={this.handleOnChange}/>
           <label>Location</label>
           <input type="text" name="location" value={this.state.location} onChange={this.handleOnChange}/>

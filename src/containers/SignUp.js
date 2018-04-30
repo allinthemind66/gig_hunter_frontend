@@ -9,6 +9,14 @@ export default class SignUp extends React.Component {
 
   }
 
+  componentDidMount(){
+
+    const token = localStorage.getItem('token')
+    if(token){
+      this.props.history.push('/')
+    }
+  }
+
   handleOnChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value

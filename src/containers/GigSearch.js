@@ -7,19 +7,17 @@ import {connect} from 'react-redux'
 class GigSearch extends React.Component {
 
   componentDidMount = () => {
-    this.props.actions.fetchAllGigs()
+      const token = localStorage.getItem('token')
+      if(!token){
+        this.props.history.push('/login')
+      }
+      else{
+        this.props.actions.fetchAllGigs()
+      }
   }
 
   handleAddGig = (gig) => {
-    // debugger
     this.props.userActions.addGigToUser(gig)
-    // fetch(`http://localhost:3000/api/v1/user_gigs/`,{
-    //   method: 'POST',
-    //   body: JSON.stringify(gig),
-    //   headers: ({
-    //     'Content-Type': 'application/json'
-    //   })
-    // })
   }
 
   render(){

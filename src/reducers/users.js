@@ -1,4 +1,10 @@
-export default function usersReducer(state = {loading: false, userData: {}, userGigs: []}, action){
+export default function usersReducer(state = {
+  username: null,
+  loggedIn: false,
+  loading: false,
+  userData: {},
+  userGigs: []}, action){
+
   switch(action.type){
     case 'START_FETCHING_USER_DATA_REQUEST':
       return Object.assign({}, state, {loading: true})

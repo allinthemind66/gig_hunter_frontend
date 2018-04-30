@@ -7,11 +7,19 @@ import { bindActionCreators } from 'redux'
 import * as actions from '../actions/userActions'
 class UserPage extends React.Component {
 
+
   componentDidMount = () => {
     // debugger
-    const id = this.props.match.params.id
-    console.log('the component did mount in userPage')
-    this.props.actions.fetchUserData(id)
+    const token = localStorage.getItem('token')
+    if(!token){
+      this.props.history.push('/login')
+    }
+    else{
+      const id = this.props.match.params.id
+      console.log('the component did mount in userPage')
+      this.props.actions.fetchUserData(id)
+
+    }
   }
 
 
