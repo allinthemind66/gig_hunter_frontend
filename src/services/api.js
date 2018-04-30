@@ -1,28 +1,36 @@
 const API_ROOT = 'http://localhost:3000/api/v1'
 
+const token = localStorage.getItem('token')
 const headers = {
-  "Content-Type": "application/json",
-    Accepts: "application/json"
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: `Bearer ${token}`
 }
 
 const login = (data) => {
+  // console.log(data)
   return fetch(`${API_ROOT}/login`, {
     method: "POST",
-    headers,
-    body: JSON.stringify(data),
-  }).then(resp => resp.json())
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({user: data})
+  })
+  .then(resp => resp.json())
 }
 
 const getCurrentUser = () => {
-  const token = localStorage.getItem('token')
+  console.log('token is', token)
   return fetch(`${API_ROOT}/current_user`, {
-    headers: {Authorization: token}
+    headers: headers
   }).then(resp => resp.json())
 }
 
 export const api = {
   auth: {
     login: login,
-    getCurrentUser
+    getCurrentUser,
+    headers
   }
 }

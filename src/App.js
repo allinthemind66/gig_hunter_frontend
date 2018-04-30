@@ -18,8 +18,10 @@ class App extends Component {
   componentDidMount(){
     const token = localStorage.getItem('token')
     if(token){
+      // console.log('there is a token', token)
       api.auth.getCurrentUser().then(resp => {
-        console.log(resp)
+        console.log('this is the response', resp)
+        // debugger
         const currentUser = {user: resp}
         this.props.actions.handleMounting(currentUser)
       })
@@ -27,7 +29,6 @@ class App extends Component {
   }
 
   render() {
-    // debugger
     return (
       <Router>
         <div className="app">

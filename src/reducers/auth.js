@@ -3,12 +3,16 @@ export default (state = {
 }, action) => {
   switch(action.type){
     case("LOGIN_USER"):
-      localStorage.setItem('token', action.payload.id)
-      return {...state, currentUser: action.payload}
+    const newState = {...state, currentUser: action.payload}
+      localStorage.setItem('token', action.payload.jwt)
+      debugger
+      return newState
     case("LOGOUT_USER"):
     localStorage.removeItem('token')
       return {...state, currentUser: {}}
     case("HANDLE_MOUNTING"):
+    // debugger
+    // localStorage.setItem('token', action.payload.jwt)
       return {...state, currentUser: action.payload.user}
     default:
       return state
