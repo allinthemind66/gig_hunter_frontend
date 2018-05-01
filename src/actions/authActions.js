@@ -1,5 +1,4 @@
 export function handleLogin(data){
-  debugger
   return {type: "LOGIN_USER", payload: data}
 }
 

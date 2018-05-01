@@ -21,6 +21,18 @@ export function addGigToUser(gig){
       headers: headers
     })
     .then(resp => resp.json())
-    .then(gig => dispatch({type: 'ADD_GIG_TO_USER', payload: gig}))
+    .then(json => dispatch({type: 'ADD_GIG_TO_USER', payload: gig}))
+  }
+}
+
+export function removeGigFromUser(gig){
+  return (dispatch) => {
+    dispatch({type: "START_REMOVING_GIG_FROM_USER"})
+    return fetch(`http://localhost:3000/api/v1/user_gigs/${gig.id}`, {
+      method: 'DELETE',
+      headers: headers
+    })
+    .then(resp => resp.json())
+    .then(gigs => dispatch({type: "REMOVE_GIG_FROM_USER", payload: gig}))
   }
 }

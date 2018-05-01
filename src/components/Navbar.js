@@ -9,7 +9,7 @@ class Navbar extends React.Component {
     return(
       <div>
         <nav className="navbar navbar-light">
-          <span className="navbar-brand mb-0 h1"><h1><a href='/'>Gig Hunter</a></h1></span>
+          <span className="navbar-brand mb-0 h1"><h1><NavLink to='/'>Gig Hunter</NavLink></h1></span>
           <span>
             <NavLink className='ui blue button' to='/'>Home</NavLink>
             <NavLink className='ui blue button' to='/gigSearch'>Search Gigs</NavLink>

@@ -5,7 +5,6 @@ export default (state = {
     case("LOGIN_USER"):
     const newState = {...state, currentUser: action.payload}
       localStorage.setItem('token', action.payload.jwt)
-      debugger
       return newState
     case("LOGOUT_USER"):
     localStorage.removeItem('token')

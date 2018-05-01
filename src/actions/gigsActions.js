@@ -1,3 +1,7 @@
+import {api} from '../services/api'
+const headers = api.auth.headers
+
+
 export function fetchAllGigs() {
   return (dispatch) => {
     dispatch({ type: 'START_FETCHING_GIGS_REQUEST' });
@@ -14,9 +18,7 @@ export function postGig(gig){
     return fetch('http://localhost:3000/api/v1/gigs', {
       method: 'POST',
       body: JSON.stringify(gig),
-      headers: ({
-        'Content-Type': 'application/json'
-      })
+      headers: headers
     }).then(resp => resp.json()).then(gigs => dispatch({type: 'FETCH_GIGS', payload: gigs}))
   }
 }
