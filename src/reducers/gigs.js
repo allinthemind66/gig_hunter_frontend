@@ -1,4 +1,5 @@
 export default (state = {loading: false, gigsData: {}, gig: {}}, action) => {
+  // debugger
   switch(action.type){
     case("START_FETCHING_GIGS_REQUEST"):
       return {...state, loading: true}

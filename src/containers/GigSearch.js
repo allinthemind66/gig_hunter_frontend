@@ -20,12 +20,19 @@ class GigSearch extends React.Component {
     this.props.userActions.addGigToUser(gig)
   }
 
+  parseDate = (date) => {
+    let parts = date.split('-');
+ // new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])
+    let newDate = new Date(parts[0], parts[1]-1, parts[2]);
+    return newDate.toDateString()
+  }
+
   render(){
     return(
       <div>
         <h3>All Gigs</h3>
         <ul>
-        {this.props.gigs.length > 0 ? this.props.gigs.map(gig => <li key={gig.id}>{gig.description} <Link to={`/gigs/${gig.id}`}>Go To Gig Page</Link><button className="ui green button" onClick={() => this.handleAddGig(gig)}>Add Gig</button></li>) : null}
+        {this.props.gigs.length > 0 ? this.props.gigs.map(gig => <li key={gig.id}>{gig.venue} - {this.parseDate(gig.date)} <Link to={`/gigs/${gig.id}`}>Go To Gig Page</Link><button className="ui green button" onClick={() => this.handleAddGig(gig)}>Add Gig</button></li>) : null}
       </ul>
       </div>
     )

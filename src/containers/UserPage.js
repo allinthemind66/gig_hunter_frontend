@@ -22,13 +22,20 @@ class UserPage extends React.Component {
     }
   }
 
+  parseDate = (date) => {
+    let parts = date.split('-');
+ // new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])
+    let newDate = new Date(parts[0], parts[1]-1, parts[2]);
+    return newDate.toDateString()
+  }
+
 
   render(){
     return(
       <div><h1>This is an individual User page page</h1>
       {<UserAvatar name={this.props.user.name}/>}
       {<UserBio user={this.props.user}/>}
-      {<UserGigs gigs={this.props.user.gigs} />}
+      {<UserGigs parseDate={this.parseDate} gigs={this.props.user.gigs} />}
       </div>
     )
   }

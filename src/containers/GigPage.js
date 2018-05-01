@@ -2,6 +2,7 @@ import React from 'react'
 import * as actions from '../actions/gigsActions'
 import {bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
+import { Link} from "react-router-dom";
 class GigPage extends React.Component {
 
   componentDidMount = () =>{
@@ -15,11 +16,33 @@ class GigPage extends React.Component {
     }
 }
 
+parseDate = (date) => {
+  if(date){
+    let parts = date.split('-');
+    // new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])
+    let newDate = new Date(parts[0], parts[1]-1, parts[2]);
+    return newDate.toDateString()
+  }
+}
+
   render(){
+    // debugger
     return(
       <div>
-        <h1>{this.props.gig.description}</h1>
-        <h2>{this.props.gig.location}</h2>
+        <h2>{this.props.gig.venue}</h2>
+        <p>Description: {this.props.gig.description}</p>
+        <p>Time: {this.props.gig.time}</p>
+        <p>Date: {this.parseDate(this.props.gig.date)}</p>
+        <p>Address: {this.props.gig.location}</p>
+        <p>Pay: ${this.props.gig.pay}</p>
+        <p>Number of Rehearsals: {this.props.gig.rehearsals}</p>
+        <p>Concert Dress: {this.props.gig.concert_dress}</p>
+        <p>Style: {this.props.gig.style}</p>
+        <h2>People Playing This Gig: {this.props.gig.users ? this.props.gig.users.length : 0}</h2>
+
+        <ul>
+          {this.props.gig.users ? this.props.gig.users.map(user => <Link to={`/user/${user.id}`}><li>{user.name}</li></Link>) : null}
+        </ul>
       </div>
     )
   }
