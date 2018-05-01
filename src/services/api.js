@@ -20,6 +20,19 @@ const login = (data) => {
   .then(resp => resp.json())
 }
 
+const signUp = (data) => {
+  debugger
+  return fetch(`${API_ROOT}/signup`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then(resp => resp.json())
+}
+
 const getCurrentUser = () => {
   console.log('token is', token)
   return fetch(`${API_ROOT}/current_user`, {
@@ -31,6 +44,7 @@ export const api = {
   auth: {
     login: login,
     getCurrentUser,
-    headers
+    headers,
+    signUp
   }
 }

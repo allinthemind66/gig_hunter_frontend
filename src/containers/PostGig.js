@@ -4,11 +4,16 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 class PostGig extends React.Component {
   state = {
-    name: '',
+    venue: '',
     location: '',
     group: '',
+    style: '',
+    type: '',
+    pay: '',
+    concert_dress: '',
     time: '',
     date: '',
+    rehearsals: '',
     description: ''
   }
 
@@ -29,11 +34,16 @@ class PostGig extends React.Component {
     e.preventDefault()
     this.props.actions.postGig(this.state)
     this.setState = {
-      name: '',
+      venue: '',
       location: '',
       group: '',
+      style: '',
+      type: '',
+      pay: '',
+      concert_dress: '',
       time: '',
-      date: ''
+      date: '',
+      description: ''
     }
     this.props.history.push('/gigSearch')
   }
@@ -43,18 +53,28 @@ class PostGig extends React.Component {
       <div>
         <h3>Post Gig</h3>
         <form onSubmit={this.handleSubmit} className="ui form">
-          <label>Name</label>
-          <input type="text" name="name" value={this.state.name} onChange={this.handleOnChange}/>
-          <label>Description</label>
-          <textarea type="text-area" name="description" value={this.state.description} onChange={this.handleOnChange}/>
+          <label>Venue</label>
+          <input type="text" name="venue" value={this.state.venue} onChange={this.handleOnChange}/>
           <label>Location</label>
           <input type="text" name="location" value={this.state.location} onChange={this.handleOnChange}/>
-          <label>Group</label>
+          <label>Group/Ensemble Name</label>
           <input type="text" name="group" value={this.state.group} onChange={this.handleOnChange}/>
+          <label>Style Of Music</label>
+          <input type="text" name="style" value={this.state.style} onChange={this.handleOnChange}/>
+          <label>Type Of Event</label>
+          <input name="type" value={this.state.type} onChange={this.handleOnChange}/>
+          <label>Total Pay($)</label>
+          <input type="number" name="pay" value={this.state.pay} onChange={this.handleOnChange}/>
+          <label>Concert Dress</label>
+          <input name="concert_dress" value={this.state.concert_dress} onChange={this.handleOnChange}/>
           <label>Time</label>
           <input type="time" name="time" value={this.state.time} onChange={this.handleOnChange}/>
           <label>Date</label>
           <input type="date" name="date" onChange={this.handleOnChange}/>
+          <label>Num Of Rehearsals</label>
+          <input type="number" name="rehearsals" value={this.state.rehearsals} onChange={this.handleOnChange}/>
+          <label>Description</label>
+          <textarea type="text-area" name="description" value={this.state.description} onChange={this.handleOnChange}/>
           <input type='submit'/>
         </form>
       </div>

@@ -17,7 +17,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../actions/userActions'
 import { bindActionCreators } from 'redux'
-class UserGigs extends React.Component {
+class HomeUserGigs extends React.Component {
   render(){
     // debugger
     // let gigs = this.props.userGigs ? this.props.userGigs.map(gig => <div key={gig.id}><p>{gig.description}<button onClick={() => this.props.actions.removeGigFromUser(gig)} className='ui red button'>X</button></p></div>) : null
@@ -33,6 +33,7 @@ class UserGigs extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  // debugger
   return {user: state.users.userData, userGigs: state.users.userGigs}
 }
 
@@ -41,4 +42,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserGigs)
+export default connect(mapStateToProps, mapDispatchToProps)(HomeUserGigs)

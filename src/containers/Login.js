@@ -3,6 +3,7 @@ import {api} from '../services/api'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actions from '../actions/authActions'
+import { Link} from "react-router-dom";
 class Login extends React.Component {
   state = {
     username: '',
@@ -31,11 +32,10 @@ class Login extends React.Component {
 
 
   render(){
-    // debugger
-    // console.log(this.props.user)
     return(
       <div>
         <h2>Welcome Back!</h2>
+        <Link className="ui button" to='/signUp'>Sign Up?</Link>
         <h3>Sign In!</h3>
         {this.state.error ? <p>There is an error</p> : null}
         <form onSubmit={this.handleOnSubmit} className="ui form">

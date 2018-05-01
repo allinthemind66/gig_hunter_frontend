@@ -1,5 +1,11 @@
 import {api} from '../services/api'
-const headers = api.auth.headers
+
+const token = localStorage.getItem('token')
+const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: `Bearer ${token}`
+}
 
 export function fetchUserData(id) {
   return (dispatch) => {

@@ -10,8 +10,8 @@ class Home extends React.Component {
     if(!token){
       this.props.history.push('/login')
     }
-    else{
-      let id = 1
+    else {
+      let id = localStorage.getItem('id')
       this.props.actions.fetchUserData(id)
     }
   }
@@ -23,6 +23,7 @@ class Home extends React.Component {
   render(){
     return(
       <div><h1>This is the user home page</h1>
+      <p>Welcome {this.props.user.name}</p>
       {<UserAvatar/>}
       {<HomeUserGigs />}
       </div>
@@ -35,7 +36,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  return {user: state.users.userData}
+  return {user: state.users.userData, currentUser: state.auth.currentUser}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
