@@ -24,7 +24,7 @@ class Home extends React.Component {
     return(
       <div><h1>This is the user home page</h1>
       <p>Welcome {this.props.user.name}</p>
-      {<UserAvatar/>}
+      {<UserAvatar user={this.props.user}/>}
       {<HomeUserGigs />}
       </div>
     )

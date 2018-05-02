@@ -2,6 +2,7 @@ export default function usersReducer(state = {
   username: null,
   loggedIn: false,
   loading: false,
+  userImg: '',
   userData: {},
   userGigs: []}, action){
 
@@ -25,6 +26,10 @@ export default function usersReducer(state = {
     case "REMOVE_GIG_FROM_USER":
     let filtered = state.userGigs.filter(gig => gig.id !== action.payload.id)
       return {...state, loading: false, userGigs: filtered}
+    case "START_ADDING_PROFILE_PIC_TO_USER":
+      return {...state, loading:true}
+    case "ADD_IMG_TO_USER":
+      return {...state, userData: action.payload}
     default:
       return state
   }
