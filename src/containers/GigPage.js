@@ -41,7 +41,7 @@ parseDate = (date) => {
         <h2>People Playing This Gig: {this.props.gig.users ? this.props.gig.users.length : 0}</h2>
 
         <ul>
-          {this.props.gig.users ? this.props.gig.users.map(user => <Link to={`/user/${user.id}`}><li>{user.name}</li></Link>) : null}
+          {this.props.gig.users ? this.props.gig.users.map(user => <Link key={user.id} to={`/user/${user.id}`}><img className='gigPageUserImages' key={user.id} src={user.img_url} alt="user image"/></Link>) : null}
         </ul>
       </div>
     )

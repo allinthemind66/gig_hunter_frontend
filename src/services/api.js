@@ -40,6 +40,7 @@ const getCurrentUser = () => {
   }).then(resp => resp.json())
 }
 
+
 export const api = {
   auth: {
     login: login,

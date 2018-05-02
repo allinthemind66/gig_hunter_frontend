@@ -1,5 +1,5 @@
 export default (state = {
-  currentUser: {}
+  currentUser: {}, loading: false
 }, action) => {
   switch(action.type){
     case("LOGIN_USER"):
@@ -8,12 +8,13 @@ export default (state = {
       localStorage.setItem('token', action.payload.jwt)
       localStorage.setItem('id', action.payload.id)
       return newState
+    case("START_LOGGING_OUT_USER"):
+      return {...state, loading: false}
     case("LOGOUT_USER"):
     localStorage.removeItem('token')
     localStorage.removeItem('id')
-      return {...state, currentUser: {}}
+      return {...state, currentUser: {}, loading: false}
     case("SIGNUP_USER"):
-      debugger
       localStorage.setItem('token', action.payload.jwt)
       localStorage.setItem('id', action.payload.id)
       return state
