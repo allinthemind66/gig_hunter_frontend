@@ -32,11 +32,13 @@ export function addGigToUser(gig){
 }
 
 export function removeGigFromUser(gig){
+  debugger
   return (dispatch) => {
     dispatch({type: "START_REMOVING_GIG_FROM_USER"})
-    return fetch(`${ROOT_API}/user_gigs/${gig.id}`, {
+    return fetch(`${ROOT_API}/userGig/delete`, {
       method: 'DELETE',
-      headers: headers
+      headers: headers,
+      body: JSON.stringify({gigId: gig.id})
     })
     .then(resp => resp.json())
     .then(gigs => dispatch({type: "REMOVE_GIG_FROM_USER", payload: gig}))
