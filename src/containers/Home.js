@@ -1,6 +1,7 @@
 import React from 'react'
 import HomeUserGigs from '../components/HomeUserGigs'
-import UserAvatar from '../components/UserAvatar'
+import UserHomeAvatar from '../components/UserHomeAvatar'
+import HomePostedGigs from '../components/HomePostedGigs'
 import * as actions from '../actions/userActions'
 import {bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -21,11 +22,13 @@ class Home extends React.Component {
     this.props.actions.removeGigFromUser(gig)
   }
   render(){
+    // debugger
     return(
       <div><h1>This is the user home page</h1>
       <p>Welcome {this.props.user.name}</p>
-      {<UserAvatar/>}
+      {<UserHomeAvatar user={this.props.user}/>}
       {<HomeUserGigs />}
+      {<HomePostedGigs/>}
       </div>
     )
   }

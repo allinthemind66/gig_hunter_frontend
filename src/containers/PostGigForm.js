@@ -2,7 +2,7 @@ import React from 'react'
 import * as actions from '../actions/gigsActions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-class PostGig extends React.Component {
+class PostGigForm extends React.Component {
   state = {
     venue: '',
     location: '',
@@ -86,4 +86,4 @@ const mapDispatchToProps = (dispatch) => {
   return {actions: bindActionCreators(actions, dispatch)}
 }
 
-export default connect(null, mapDispatchToProps)(PostGig)
+export default connect(null, mapDispatchToProps)(PostGigForm)

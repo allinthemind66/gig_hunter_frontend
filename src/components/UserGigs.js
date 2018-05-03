@@ -6,7 +6,7 @@ const UserGigs = (props) => {
     <div>
       <h3>Upcoming Gigs</h3>
       <ul>
-        {props.gigs ? props.gigs.map(gig => <Link to={`/gigs/${gig.id}`}><li key={gig.id}>{gig.venue} - {props.parseDate(gig.date)}</li></Link>) : null}
+        {props.gigs ? props.gigs.map(gig => <Link key={gig.id} to={`/gigs/${gig.id}`}><li key={gig.id}>{gig.venue} - {props.parseDate(gig.date)}</li></Link>) : null}
       </ul>
     </div>
   )

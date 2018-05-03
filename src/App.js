@@ -10,7 +10,7 @@ import SignUp from './containers/SignUp'
 import Home from './containers/Home'
 import GigPage from './containers/GigPage'
 import UserPage from './containers/UserPage'
-import PostGig from './containers/PostGig'
+import PostGigForm from './containers/PostGigForm'
 import GigSearch from './containers/GigSearch'
 import {api} from './services/api'
 class App extends Component {
@@ -41,7 +41,7 @@ class App extends Component {
           <Route exact path="/gigSearch" component={GigSearch}/>
           <Route exact path="/" component={Home} />
           <Route exact path="/gig-page" component={GigPage}/>
-          <Route exact path="/postGig" component={PostGig}/>
+          <Route exact path="/postGigForm" component={PostGigForm}/>
         </div>
       </Router>
     );

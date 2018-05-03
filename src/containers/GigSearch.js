@@ -16,8 +16,8 @@ class GigSearch extends React.Component {
       }
   }
 
-  handleAddGig = (gig) => {
-    this.props.userActions.addGigToUser(gig)
+  handleApplyGig = (gig) => {
+    this.props.userActions.addGigApplication(gig)
   }
 
   parseDate = (date) => {
@@ -32,7 +32,7 @@ class GigSearch extends React.Component {
       <div>
         <h3>All Gigs</h3>
         <ul>
-        {this.props.gigs.length > 0 ? this.props.gigs.map(gig => <li key={gig.id}>{gig.venue} - {this.parseDate(gig.date)} <Link to={`/gigs/${gig.id}`}>Go To Gig Page</Link><button className="ui green button" onClick={() => this.handleAddGig(gig)}>Add Gig</button></li>) : null}
+        {this.props.gigs.length > 0 ? this.props.gigs.map(gig => <li key={gig.id}> {gig.venue} - {this.parseDate(gig.date)} <Link to={`/gigs/${gig.id}`}>Go To Gig Page</Link><button className="ui green button" onClick={() => this.handleApplyGig(gig)}>Apply For This Gig!</button></li>) : null}
       </ul>
       </div>
     )

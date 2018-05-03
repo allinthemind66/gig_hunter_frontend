@@ -1,3 +1,7 @@
+import {api} from '../services/api'
+const API_ROOT = 'http://localhost:3000/api/v1'
+const headers = api.auth.headers
+
 export function handleLogin(data){
   return {type: "LOGIN_USER", payload: data}
 }
@@ -7,7 +11,15 @@ export function handleSignUp(data){
 }
 
 export function handleLogout(){
-  return {type: "LOGOUT_USER"}
+  return (dispatch) => {
+    dispatch({type: "START_LOGGING_OUT_USER"})
+    return fetch(`${API_ROOT}/signout`, {
+      method: "DELETE",
+      headers: headers
+    })
+    // .then(resp => resp.json())
+    .then(() => dispatch({type: "LOGOUT_USER"}))
+  }
 }
 
 export function handleMounting(data){
