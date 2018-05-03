@@ -31,11 +31,16 @@ export default function usersReducer(state = {
     case "START_ADDING_PROFILE_PIC_TO_USER":
       return {...state, loading:true}
     case "ADD_IMG_TO_USER":
-      return {...state, userData: action.payload}
+      return {...state, userData: action.payload, loading: false}
     case("START_ADDING_APPLICATION_TO_USER"):
       return {...state, loading: true}
     case("CREATE_GIG_APPLICATION"):
       return state
+    case("START_GETTING_USERS_POSTED_GIGS"):
+      return {...state, loading: true}
+    case("ADD_USERS_POSTED_GIGS_TO_USER"):
+      let usersGigs = action.payload.filter(gig => gig.user_id == localStorage.id)
+      return {...state, loading: false, userPostedGigs: usersGigs}
     default:
       return state
   }

@@ -11,13 +11,13 @@ handleImgSubmit = (data) => {
 }
 
   render(){
-    const options = {
-      accept: 'image/*',
-      maxFiles: 5,
-      storeTo: {
-        location: 's3',
-      },
-    };
+    // const options = {
+    //   accept: 'image/*',
+    //   maxFiles: 5,
+    //   storeTo: {
+    //     location: 's3',
+    //   },
+    // };
     return(
       <div>
         {this.props.user.img_url ? <img className="avatar" src={this.props.user.img_url} alt="user_img"/> : <img className="avatar" src={require(`../userImgs/defaultImg.png`)} alt="user_img"/>}

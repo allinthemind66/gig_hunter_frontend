@@ -19,6 +19,7 @@ export function fetchUserData(id) {
 }
 
 export function addGigToUser(gig){
+  debugger
   return (dispatch) => {
     dispatch({type: 'START_ADDING_GIG_TO_USER'})
     return fetch(`${ROOT_API}/user_gigs/`,{
@@ -60,12 +61,21 @@ export function sendImageToController(img, id){
 
 export function addGigApplication(gig){
   console.log('inside handle apply gig')
-  return(dispatch) => {
+  return (dispatch) => {
     dispatch({type: "START_ADDING_APPLICATION_TO_USER"})
     return fetch(`${ROOT_API}/gig_applications`, {
       method: "POST",
       body: JSON.stringify({gigId: gig.id}),
       headers: headers
     })
+  }
+}
+
+export function fetchUserPostedGigs(){
+  return (dispatch) => {
+    dispatch({type: "START_GETTING_USERS_POSTED_GIGS"})
+    return fetch(`${ROOT_API}/gigs`)
+    .then(resp => resp.json())
+    .then(gigs => dispatch({type: "ADD_USERS_POSTED_GIGS_TO_USER", payload: gigs}))
   }
 }
