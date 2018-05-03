@@ -1,10 +1,12 @@
 export default function usersReducer(state = {
-  username: null,
-  loggedIn: false,
+  // username: null,
+  // loggedIn: false,
   loading: false,
   userImg: '',
   userData: {},
-  userGigs: []}, action){
+  userGigs: [],
+  userPostedGigs: []
+}, action){
 
   switch(action.type){
     case 'START_FETCHING_USER_DATA_REQUEST':
@@ -30,6 +32,10 @@ export default function usersReducer(state = {
       return {...state, loading:true}
     case "ADD_IMG_TO_USER":
       return {...state, userData: action.payload}
+    case("START_ADDING_APPLICATION_TO_USER"):
+      return {...state, loading: true}
+    case("CREATE_GIG_APPLICATION"):
+      return state
     default:
       return state
   }

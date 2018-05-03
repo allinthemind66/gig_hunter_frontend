@@ -21,6 +21,7 @@ class Home extends React.Component {
     this.props.actions.removeGigFromUser(gig)
   }
   render(){
+    // debugger
     return(
       <div><h1>This is the user home page</h1>
       <p>Welcome {this.props.user.name}</p>

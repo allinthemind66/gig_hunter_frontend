@@ -26,7 +26,7 @@ parseDate = (date) => {
 }
 
   render(){
-    // debugger
+    debugger
     return(
       <div>
         <h2>{this.props.gig.venue}</h2>

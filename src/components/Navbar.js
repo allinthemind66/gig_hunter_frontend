@@ -13,7 +13,7 @@ class Navbar extends React.Component {
           <span>
             <NavLink className='ui blue button' to='/'>Home</NavLink>
             <NavLink className='ui blue button' to='/gigSearch'>Search Gigs</NavLink>
-            <NavLink className='ui blue button' to='/postGig'>Post Gig</NavLink>
+            <NavLink className='ui blue button' to='/postGigForm'>Post Gig</NavLink>
             <NavLink className='ui blue button' to='/login' onClick={this.props.actions.handleLogout}>Logout</NavLink>
           </span>
         </nav>

@@ -32,7 +32,7 @@ export function addGigToUser(gig){
 }
 
 export function removeGigFromUser(gig){
-  debugger
+  // debugger
   return (dispatch) => {
     dispatch({type: "START_REMOVING_GIG_FROM_USER"})
     return fetch(`${ROOT_API}/userGig/delete`, {
@@ -55,5 +55,17 @@ export function sendImageToController(img, id){
     })
     .then(resp => resp.json())
     .then(img => dispatch({type: "ADD_IMG_TO_USER", payload: img}))
+  }
+}
+
+export function addGigApplication(gig){
+  console.log('inside handle apply gig')
+  return(dispatch) => {
+    dispatch({type: "START_ADDING_APPLICATION_TO_USER"})
+    return fetch(`${ROOT_API}/gig_applications`, {
+      method: "POST",
+      body: JSON.stringify({gigId: gig.id}),
+      headers: headers
+    })
   }
 }
