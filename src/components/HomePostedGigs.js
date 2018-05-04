@@ -16,7 +16,7 @@ class HomePostedGigs extends React.Component {
         <h3>Your Posted Gigs</h3>
         <p>Hi! I am HomePostedGigs component!</p>
         <ul>
-        {this.props.userPostedGigs.map(gig => <HomePostedIndividualGig gig={gig}/>)}
+        {this.props.userPostedGigs.map(gig => <HomePostedIndividualGig gig={gig} key={gig.id}/>)}
       </ul>
       </div>
     )
