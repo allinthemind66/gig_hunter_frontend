@@ -13,6 +13,7 @@ export default (state = {
     case("LOGOUT_USER"):
     localStorage.removeItem('token')
     localStorage.removeItem('id')
+    localStorage.clear()
       return {...state, currentUser: {}, loading: false}
     case("SIGNUP_USER"):
       localStorage.setItem('token', action.payload.jwt)

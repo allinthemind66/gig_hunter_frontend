@@ -11,15 +11,16 @@ export function handleSignUp(data){
 }
 
 export function handleLogout(){
-  return (dispatch) => {
-    dispatch({type: "START_LOGGING_OUT_USER"})
-    return fetch(`${API_ROOT}/signout`, {
-      method: "DELETE",
-      headers: headers
-    })
-    // .then(resp => resp.json())
-    .then(() => dispatch({type: "LOGOUT_USER"}))
-  }
+  api.auth.signOut()
+  // return (dispatch) => {
+  //   dispatch({type: "START_LOGGING_OUT_USER"})
+  //   return fetch(`${API_ROOT}/signout`, {
+  //     method: "DELETE",
+  //     headers: headers
+  //   })
+  //   // .then(resp => resp.json())
+  //   .then(() => dispatch({type: "LOGOUT_USER"}))
+  // }
 }
 
 export function handleMounting(data){

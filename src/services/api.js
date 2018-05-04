@@ -1,6 +1,6 @@
 const API_ROOT = 'http://localhost:3000/api/v1'
 
-const token = localStorage.getItem('token')
+let token = localStorage.getItem('token')
 const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -9,6 +9,7 @@ const headers = {
 
 const login = (data) => {
   // console.log(data)
+  // debugger
   return fetch(`${API_ROOT}/login`, {
     method: "POST",
     headers: {
@@ -40,12 +41,20 @@ const getCurrentUser = () => {
   }).then(resp => resp.json())
 }
 
+const signOut = () => {
+  token = ''
+  localStorage.clear()
+  return fetch(`${API_ROOT}/signout`)
+  .then(() => console.log('token is ', token))
+}
+
 
 export const api = {
   auth: {
     login: login,
     getCurrentUser,
     headers,
-    signUp
+    signUp,
+    signOut
   }
 }

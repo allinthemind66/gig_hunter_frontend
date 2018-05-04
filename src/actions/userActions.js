@@ -1,6 +1,6 @@
 // import {api} from '../services/api'
 const ROOT_API = 'http://localhost:3000/api/v1'
-const token = localStorage.getItem('token')
+let token = localStorage.getItem('token')
 const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -18,19 +18,19 @@ export function fetchUserData(id) {
   };
 }
 
-export function addGigToUser(gig){
-  debugger
-  return (dispatch) => {
-    dispatch({type: 'START_ADDING_GIG_TO_USER'})
-    return fetch(`${ROOT_API}/user_gigs/`,{
-      method: 'POST',
-      body: JSON.stringify(gig),
-      headers: headers
-    })
-    .then(resp => resp.json())
-    .then(json => dispatch({type: 'ADD_GIG_TO_USER', payload: gig}))
-  }
-}
+// export function addGigToUser(gig){
+//   debugger
+//   return (dispatch) => {
+//     dispatch({type: 'START_ADDING_GIG_TO_USER'})
+//     return fetch(`${ROOT_API}/user_gigs/`,{
+//       method: 'POST',
+//       body: JSON.stringify(gig),
+//       headers: headers
+//     })
+//     .then(resp => resp.json())
+//     .then(json => dispatch({type: 'ADD_GIG_TO_USER', payload: gig}))
+//   }
+// }
 
 export function removeGigFromUser(gig){
   // debugger

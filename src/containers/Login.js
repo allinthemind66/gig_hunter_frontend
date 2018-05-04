@@ -14,7 +14,7 @@ class Login extends React.Component {
   handleOnChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    })
+    }, () => console.log(this.state))
   }
   handleOnSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ class Login extends React.Component {
         this.setState({error: true})
       }
       else{
-        this.setState({error: false})
+        this.setState({error: false, username: '', password: ''})
         this.props.actions.handleLogin(user)
         this.props.history.push('/')
       }
