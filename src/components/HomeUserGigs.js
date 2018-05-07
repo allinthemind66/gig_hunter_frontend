@@ -14,8 +14,9 @@ class HomeUserGigs extends React.Component {
       <div>
         <h3>Upcoming Gigs</h3>
         <ul>
-          {this.props.userGigs ? this.props.userGigs.map(gig => <div key={gig.id}><p><Link to={`/gigs/${gig.id}`}>{gig.venue} - {this.parseDate(gig.date)}</Link><button onClick={() => this.props.actions.removeGigFromUser(gig)} className='ui red button'>X</button></p></div>) : null}
+          {this.props.userGigs ? this.props.userGigs.map(gig => <div key={gig.id}><p><Link to={`/gigs/${gig.id}`}>{gig.venue} - {this.parseDate(gig.date)}</Link><button onClick={() => this.props.actions.removeGigFromUser(gig)} className='ui red button'>X</button></p></div>): null}
         </ul>
+        {this.props.userGigs && this.props.userGigs.length === 0 ? <p>You currently Have no Upcoming gigs</p> : null}
       </div>
     )
   }

@@ -3,14 +3,18 @@ export default (state = {
   gigsData: [],
   gig: {},
   filteredGigs: [],
+  signedInUserGigs: [],
   dateSortedReversed: false,
   venueSortedReversed: false}, action) => {
   switch(action.type){
     case("START_FETCHING_GIGS_REQUEST"):
       return {...state, loading: true}
     case('FETCH_GIGS'):
-    let dateSortedGigs = action.payload.sort((a, b) => new Date(a.date) - new Date(b.date))
+      action.payload.sort((a, b) => new Date(a.date) - new Date(b.date))
       return {...state, loading:false, gigsData: action.payload, filteredGigs: action.payload}
+    case("FETCH_GIGS_FOR_SIGNED_IN_USER"):
+      action.payload.sort((a, b) => new Date(a.date) - new Date(b.date))
+      return {...state, loading: false, gigsData: action.payload, filteredGigs: action.payload}
     case("START_ADDING_GIG_TO_USER"):
       return {...state, loading: true}
     case("ADD_GIG"):

@@ -12,12 +12,12 @@ class Navbar extends React.Component {
         <nav className="navbar navbar-light">
           <span className="navbar-brand mb-0 h1"><h1><NavLink to='/'>Gig Hunter</NavLink></h1></span>
           <span>
-            <NavLink className='ui blue button' to='/'>Home <i class="home icon"></i></NavLink>
-            <button className='ui blue button'>Inbox <i class="inbox icon"></i></button>
-            <NavLink className='ui blue button' to='/gigSearch'>Search Gigs <i class="music icon"></i></NavLink>
-            <NavLink className='ui blue button' to='/userSearch'>Search Users <i class="user icon"></i></NavLink>
-            <NavLink className='ui blue button' to='/postGigForm'>Post Gig <i class="paper plane icon"></i></NavLink>
-            <NavLink className='ui blue button' to='/login' onClick={this.props.actions.handleLogout}>Logout <i class="arrow right icon"></i></NavLink>
+            <NavLink className='ui blue button' to='/'>Home <i className="home icon"></i></NavLink>
+            <button className='ui blue button'>Inbox <i className="inbox icon"></i></button>
+            <NavLink className='ui blue button' to='/gigSearch'>Search Gigs <i className="music icon"></i></NavLink>
+            <NavLink className='ui blue button' to='/userSearch'>Search Users <i className="user icon"></i></NavLink>
+            <NavLink className='ui blue button' to='/postGigForm'>Post Gig <i className="paper plane icon"></i></NavLink>
+            <NavLink className='ui blue button' to='/login' onClick={this.props.actions.handleLogout}>Logout <i className="arrow right icon"></i></NavLink>
           </span>
         </nav>
       </div>

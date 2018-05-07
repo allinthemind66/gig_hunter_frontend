@@ -15,7 +15,11 @@ class GigSearch extends React.Component {
         this.props.history.push('/login')
       }
       else{
-        this.props.actions.fetchAllGigs()
+        // debugger
+        let id = localStorage.getItem('id')
+        this.props.userActions.fetchUserData(id)
+        this.props.actions.fetchGigsForSignedInUser()
+          // this.props.actions.fetchAllGigs()
       }
   }
 
@@ -41,6 +45,7 @@ class GigSearch extends React.Component {
 
   render(){
     let postedGigs;
+    debugger
     if(this.props.gigs.length > 0){
       postedGigs = this.props.gigs.filter(gig => gig.user_id != this.props.userData.id).map((gig) => {
         return (
@@ -56,7 +61,6 @@ class GigSearch extends React.Component {
             <hr/>
           </div>)})
     }
-    debugger
     // this.props.gigs.map(gig => <div className="gigSearch"><li key={gig.id}><button className="ui green button" onClick={() => this.handleApplyGig(gig)}>Apply For This Gig!</button> {gig.venue} - {this.parseDate(gig.date)} <Link to={`/gigs/${gig.id}`}>Go To Gig Page</Link></li>User: {gig.user_id} <br/>Description: {gig.description}<hr/></div>) : null
     return(
       <div className="main">
@@ -88,7 +92,9 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
+    // gigs: state.gigs.filteredGigs,
     gigs: state.gigs.filteredGigs,
+
     userData: state.users.userData
   }
 }

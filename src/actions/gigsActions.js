@@ -11,6 +11,19 @@ export function fetchAllGigs() {
   };
 }
 
+export function fetchGigsForSignedInUser(){
+  return (dispatch) => {
+    dispatch({ type: 'START_FETCHING_GIGS_REQUEST' });
+    return fetch('http://localhost:3000/api/v1/gigs/signedInGigs', {
+      method: "POST",
+      body: JSON.stringify({token: localStorage.getItem('token')}),
+      headers: headers
+    })
+      .then(resp => resp.json())
+      .then(gigs => dispatch({ type: 'FETCH_GIGS_FOR_SIGNED_IN_USER', payload: gigs }));
+  };
+}
+
 
 export function postGig(gig){
   return (dispatch) => {
