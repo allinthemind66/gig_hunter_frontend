@@ -50,8 +50,8 @@ class PostGigForm extends React.Component {
 
   render(){
     return(
-      <div>
-        <h3>Post Gig</h3>
+      <div className="main">
+        <h3 className="headline">Post Gig</h3>
         <form onSubmit={this.handleSubmit} className="ui form">
           <label>Venue</label>
           <input type="text" name="venue" value={this.state.venue} onChange={this.handleOnChange}/>

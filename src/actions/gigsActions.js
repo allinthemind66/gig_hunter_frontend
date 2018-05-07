@@ -31,3 +31,7 @@ export function fetchGigData(gigId){
     .then(gig => dispatch({type: 'FETCH_GIG', payload: gig}))
   }
 }
+
+export function handleSearchForGigs(searchInput){
+  return {type: "SEARCH_FILTER", payload: searchInput}
+}

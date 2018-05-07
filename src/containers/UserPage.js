@@ -32,7 +32,7 @@ class UserPage extends React.Component {
 
   render(){
     return(
-      <div><h1>This is an individual User page page</h1>
+      <div><h1>This is an individual User page</h1>
       {<UserAvatar user={this.props.user} name={this.props.user.name}/>}
       {<UserBio user={this.props.user}/>}
       {<UserGigs parseDate={this.parseDate} gigs={this.props.user.gigs} />}

@@ -83,8 +83,6 @@ class HomePostedIndividualGig extends React.Component {
         </div>
         <div>
           <h3>Musicians Playing This Gig</h3>
-          {/* {this.state.attendees.length > 0 ? this.state.attendees.map(user => {<div><p>{user.name}</p></div> null};)} */}
-
           {this.state.attendees.length > 0 ? this.state.attendees.map(user => <div key={user.id}><Link to={`/user/${user.id}`}><p>{user.name}</p></Link><button onClick={() => this.removeUserFromGig(this.props.gig.id, user)}className="ui red button">Remove</button></div>) : <p>There a currently no musicians signed up to play</p>}
         </div>
       </div>

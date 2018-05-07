@@ -5,6 +5,23 @@ body {
   background-color: rgb(218, 237, 246);
 }
 
+.gigSearch {
+  /* margin-left: 20%;
+  margin-right: 20%; */
+  list-style: none;
+  background-color: green;
+}
+
+.gigSearch:hover{
+transform: scale(1.02)
+
+}
+
+.main {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
 .navbar {
     position: relative;
     display: -webkit-box;

@@ -26,10 +26,11 @@ handleImgSubmit = (data) => {
           <ReactFilestack
             apikey={'Azn8tUJWMSDmfE1HYLWB9z'}
             buttonText="Edit Profile Image"
-            buttonClass="classname"
+            buttonClass="ui button"
             options={options}
             onSuccess={this.handleImgSubmit}
           />
+          <button className='ui button'>Edit Profile</button>
         <h4>{this.props.name}</h4>
       </div>
     )
