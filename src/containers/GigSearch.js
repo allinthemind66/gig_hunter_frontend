@@ -40,7 +40,24 @@ class GigSearch extends React.Component {
 
 
   render(){
-    // debugger
+    let postedGigs;
+    if(this.props.gigs.length > 0){
+      postedGigs = this.props.gigs.filter(gig => gig.user_id != this.props.userData.id).map((gig) => {
+        return (
+        <div className="gigSearch">
+          <li key={gig.id}>
+            <button className="ui green button" onClick={() => this.handleApplyGig(gig)}>
+              Apply For This Gig!
+            </button>
+            {gig.venue} - {this.parseDate(gig.date)}
+            <Link to={`/gigs/${gig.id}`}>Go To Gig Page</Link>
+          </li>
+            User: {gig.user_id} <br/>Description: {gig.description}
+            <hr/>
+          </div>)})
+    }
+    debugger
+    // this.props.gigs.map(gig => <div className="gigSearch"><li key={gig.id}><button className="ui green button" onClick={() => this.handleApplyGig(gig)}>Apply For This Gig!</button> {gig.venue} - {this.parseDate(gig.date)} <Link to={`/gigs/${gig.id}`}>Go To Gig Page</Link></li>User: {gig.user_id} <br/>Description: {gig.description}<hr/></div>) : null
     return(
       <div className="main">
         <h3>All Gigs</h3>
@@ -54,7 +71,8 @@ class GigSearch extends React.Component {
         <button className='ui button' onClick={this.props.actions.handleSortByVenue}>Sort By Venue</button>
 
         <ul>
-        {this.props.gigs.length > 0 ? this.props.gigs.map(gig => <div className="gigSearch"><li key={gig.id}><button className="ui green button" onClick={() => this.handleApplyGig(gig)}>Apply For This Gig!</button> {gig.venue} - {this.parseDate(gig.date)} <Link to={`/gigs/${gig.id}`}>Go To Gig Page</Link></li>Description: {gig.description}<hr/></div>) : null}
+          {postedGigs}
+        {/* {this.props.gigs.length > 0 ? this.props.gigs.map(gig => <div className="gigSearch"><li key={gig.id}><button className="ui green button" onClick={() => this.handleApplyGig(gig)}>Apply For This Gig!</button> {gig.venue} - {this.parseDate(gig.date)} <Link to={`/gigs/${gig.id}`}>Go To Gig Page</Link></li>User: {gig.user_id} <br/>Description: {gig.description}<hr/></div>) : null} */}
       </ul>
       </div>
     )
@@ -69,7 +87,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  return { gigs: state.gigs.filteredGigs}
+  return {
+    gigs: state.gigs.filteredGigs,
+    userData: state.users.userData
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GigSearch)

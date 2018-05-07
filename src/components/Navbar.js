@@ -17,7 +17,7 @@ class Navbar extends React.Component {
             <NavLink className='ui blue button' to='/gigSearch'>Search Gigs <i class="music icon"></i></NavLink>
             <NavLink className='ui blue button' to='/userSearch'>Search Users <i class="user icon"></i></NavLink>
             <NavLink className='ui blue button' to='/postGigForm'>Post Gig <i class="paper plane icon"></i></NavLink>
-            <NavLink className='ui blue button' to='/login' onClick={this.props.actions.handleLogout}>Logout</NavLink>
+            <NavLink className='ui blue button' to='/login' onClick={this.props.actions.handleLogout}>Logout <i class="arrow right icon"></i></NavLink>
           </span>
         </nav>
       </div>

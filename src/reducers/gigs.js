@@ -1,4 +1,10 @@
-export default (state = {loading: false, gigsData: [], gig: {}, filteredGigs: [], dateSortedReversed: false, venueSortedReversed: false}, action) => {
+export default (state = {
+  loading: false,
+  gigsData: [],
+  gig: {},
+  filteredGigs: [],
+  dateSortedReversed: false,
+  venueSortedReversed: false}, action) => {
   switch(action.type){
     case("START_FETCHING_GIGS_REQUEST"):
       return {...state, loading: true}
@@ -22,21 +28,17 @@ export default (state = {loading: false, gigsData: [], gig: {}, filteredGigs: []
         return state.dateSortedReversed ? {...state, filteredGigs: state.gigsData, dateSortedReversed:false} : {...state, filteredGigs: state.gigsData.slice().reverse(), dateSortedReversed:true}
     case('SORT_BY_VENUE'):
     let returnArr = state.gigsData.slice().sort(function(a, b) {
-      let venueA = a.venue.toUpperCase(); // ignore upper and lowercase
-      let venueB = b.venue.toUpperCase(); // ignore upper and lowercase
+      let venueA = a.venue.toUpperCase();
+      let venueB = b.venue.toUpperCase();
       if (venueA < venueB) {
         return -1;
       }
       if (venueA > venueB) {
         return 1;
       }
-
-      // names must be equal
       return 0;
     });
-    debugger
       return state.venueSortedReversed ? {...state, filteredGigs: state.filteredGigs.slice().reverse(), venueSortedReversed:false} : {...state, filteredGigs: returnArr, venueSortedReversed:true}
-
     default:
       return state
   }
