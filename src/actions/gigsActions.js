@@ -35,3 +35,11 @@ export function fetchGigData(gigId){
 export function handleSearchForGigs(searchInput){
   return {type: "SEARCH_FILTER", payload: searchInput}
 }
+
+export function handleSortByDate(){
+  return {type: "SORT_BY_DATE"}
+}
+
+export function handleSortByVenue(){
+  return {type: "SORT_BY_VENUE"}
+}

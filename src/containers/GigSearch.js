@@ -35,8 +35,9 @@ class GigSearch extends React.Component {
     this.setState({
       searchInput: e.target.value
     }, () => this.props.actions.handleSearchForGigs(this.state.searchInput))
-
   }
+
+
 
   render(){
     // debugger
@@ -49,7 +50,9 @@ class GigSearch extends React.Component {
             <i className="search icon"></i>
           </div>
         </div>
-        <button className='ui button'>Sort By Date</button>
+        <button className='ui button' onClick={this.props.actions.handleSortByDate}>Sort By Date</button>
+        <button className='ui button' onClick={this.props.actions.handleSortByVenue}>Sort By Venue</button>
+
         <ul>
         {this.props.gigs.length > 0 ? this.props.gigs.map(gig => <div className="gigSearch"><li key={gig.id}><button className="ui green button" onClick={() => this.handleApplyGig(gig)}>Apply For This Gig!</button> {gig.venue} - {this.parseDate(gig.date)} <Link to={`/gigs/${gig.id}`}>Go To Gig Page</Link></li>Description: {gig.description}<hr/></div>) : null}
       </ul>

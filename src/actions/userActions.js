@@ -79,3 +79,17 @@ export function fetchUserPostedGigs(){
     .then(gigs => dispatch({type: "ADD_USERS_POSTED_GIGS_TO_USER", payload: gigs}))
   }
 }
+
+export function getAllUsers(){
+  return (dispatch) => {
+    dispatch({type: "START_GETTING_ALL_USERS"})
+    return fetch(`${ROOT_API}/users`)
+    .then(resp => resp.json())
+    .then(json => dispatch({type: "GET_ALL_USERS", payload: json}))
+  }
+}
+
+export function handleSearchForUsers(searchInput){
+  debugger
+  return {type: "SEARCH_FILTER_FOR_ALL_USERS", payload: searchInput}
+}

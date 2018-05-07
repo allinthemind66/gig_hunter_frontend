@@ -5,7 +5,9 @@ export default function usersReducer(state = {
   userImg: '',
   userData: {},
   userGigs: [],
-  userPostedGigs: []
+  userPostedGigs: [],
+  allUsers: [],
+  filteredUsers: []
 }, action){
 
   switch(action.type){
@@ -41,6 +43,12 @@ export default function usersReducer(state = {
     case("ADD_USERS_POSTED_GIGS_TO_USER"):
       let usersGigs = action.payload.filter(gig => gig.user_id == localStorage.id)
       return {...state, loading: false, userPostedGigs: usersGigs}
+    case("START_GETTING_ALL_USERS"):
+      return {...state, loading: true}
+    case("GET_ALL_USERS"):
+      return {...state, allUsers: action.payload, filteredUsers: action.payload,loading: false}
+    case("SEARCH_FILTER_FOR_ALL_USERS"):
+      return {...state, filteredUsers: state.allUsers.filter(user => user.name.toLowerCase().includes(action.payload.toLowerCase()))}
     default:
       return state
   }
