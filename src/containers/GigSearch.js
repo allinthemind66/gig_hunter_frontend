@@ -24,7 +24,7 @@ class GigSearch extends React.Component {
   }
 
   handleApplyGig = (gig) => {
-    this.props.userActions.addGigApplication(gig)
+    this.props.actions.addGigApplication(gig)
   }
 
   parseDate = (date) => {

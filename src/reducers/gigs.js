@@ -13,16 +13,20 @@ export default (state = {
       action.payload.sort((a, b) => new Date(a.date) - new Date(b.date))
       return {...state, loading:false, gigsData: action.payload, filteredGigs: action.payload}
     case("FETCH_GIGS_FOR_SIGNED_IN_USER"):
-      action.payload.sort((a, b) => new Date(a.date) - new Date(b.date))
+      action.payload.length > 0 ? action.payload.sort((a, b) => new Date(a.date) - new Date(b.date)) : null
       return {...state, loading: false, gigsData: action.payload, filteredGigs: action.payload}
-    case("START_ADDING_GIG_TO_USER"):
-      return {...state, loading: true}
-    case("ADD_GIG"):
-      return state
+    // case("START_ADDING_GIG_TO_USER"):
+    //   return {...state, loading: true}
+    // case("ADD_GIG"):
+    //   return state
     case("START_POSTING_GIG"):
       return {...state, loading: true}
     case("START_FETCHING_GIG"):
       return {...state, loading: true}
+    case("START_ADDING_APPLICATION_TO_USER"):
+      return {...state, loading: true}
+    case("CREATE_GIG_APPLICATION"):
+      return state
     case("FETCH_GIG"):
       return {...state, gig: action.payload}
     case("SEARCH_FILTER"):

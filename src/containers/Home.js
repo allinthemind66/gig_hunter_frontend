@@ -3,6 +3,7 @@ import HomeUserGigs from '../components/HomeUserGigs'
 import UserHomeAvatar from '../components/UserHomeAvatar'
 import HomePostedGigs from '../components/HomePostedGigs'
 import * as actions from '../actions/userActions'
+import * as gigActions from '../actions/gigsActions'
 import {bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 class Home extends React.Component {
@@ -19,7 +20,7 @@ class Home extends React.Component {
 
   handleRemoveGig = (gig) => {
     console.log('remove gig has been clicked!')
-    this.props.actions.removeGigFromUser(gig)
+    this.props.gigActions.removeGigFromUser(gig)
   }
   render(){
     // debugger

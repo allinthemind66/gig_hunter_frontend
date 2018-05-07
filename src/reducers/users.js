@@ -20,11 +20,11 @@ export default function usersReducer(state = {
       // return {...this.state}
     case "START_ADDING_GIG_TO_USER":
       return {...state, loading: true}
-    case "ADD_GIG_TO_USER":
-    // debugger
-    //DONT ADD MULTIPLE
-    // state.userGigs.find(gig => gig.id === action.payload.id) === undefined ? [...state.userGigs, action.payload] : [...state.userGigs]
-      return {...state, loading: false, userGigs: [...state.userGigs, action.payload]}
+    // case "ADD_GIG_TO_USER":
+    // // debugger
+    // //DONT ADD MULTIPLE
+    // // state.userGigs.find(gig => gig.id === action.payload.id) === undefined ? [...state.userGigs, action.payload] : [...state.userGigs]
+    //   return {...state, loading: false, userGigs: [...state.userGigs, action.payload]}
     case "START_REMOVING_GIG_FROM_USER":
       return {...state, loading: true}
     case "REMOVE_GIG_FROM_USER":
@@ -34,10 +34,10 @@ export default function usersReducer(state = {
       return {...state, loading:true}
     case "ADD_IMG_TO_USER":
       return {...state, userData: action.payload, loading: false}
-    case("START_ADDING_APPLICATION_TO_USER"):
-      return {...state, loading: true}
-    case("CREATE_GIG_APPLICATION"):
-      return state
+    // case("START_ADDING_APPLICATION_TO_USER"):
+    //   return {...state, loading: true}
+    // case("CREATE_GIG_APPLICATION"):
+    //   return state
     case("START_GETTING_USERS_POSTED_GIGS"):
       return {...state, loading: true}
     case("ADD_USERS_POSTED_GIGS_TO_USER"):

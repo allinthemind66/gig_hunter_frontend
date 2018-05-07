@@ -32,19 +32,19 @@ export function fetchUserData(id) {
 //   }
 // }
 
-export function removeGigFromUser(gig){
-  // debugger
-  return (dispatch) => {
-    dispatch({type: "START_REMOVING_GIG_FROM_USER"})
-    return fetch(`${ROOT_API}/userGig/delete`, {
-      method: 'DELETE',
-      headers: headers,
-      body: JSON.stringify({gigId: gig.id})
-    })
-    .then(resp => resp.json())
-    .then(gigs => dispatch({type: "REMOVE_GIG_FROM_USER", payload: gig}))
-  }
-}
+// export function removeGigFromUser(gig){
+//   // debugger
+//   return (dispatch) => {
+//     dispatch({type: "START_REMOVING_GIG_FROM_USER"})
+//     return fetch(`${ROOT_API}/userGig/delete`, {
+//       method: 'DELETE',
+//       headers: headers,
+//       body: JSON.stringify({gigId: gig.id})
+//     })
+//     .then(resp => resp.json())
+//     .then(gigs => dispatch({type: "REMOVE_GIG_FROM_USER", payload: gig}))
+//   }
+// }
 
 export function sendImageToController(img, id){
   return (dispatch) => {
@@ -59,17 +59,17 @@ export function sendImageToController(img, id){
   }
 }
 
-export function addGigApplication(gig){
-  console.log('inside handle apply gig')
-  return (dispatch) => {
-    dispatch({type: "START_ADDING_APPLICATION_TO_USER"})
-    return fetch(`${ROOT_API}/gig_applications`, {
-      method: "POST",
-      body: JSON.stringify({gigId: gig.id}),
-      headers: headers
-    })
-  }
-}
+// export function addGigApplication(gig){
+//   console.log('inside handle apply gig')
+//   return (dispatch) => {
+//     dispatch({type: "START_ADDING_APPLICATION_TO_USER"})
+//     return fetch(`${ROOT_API}/gig_applications`, {
+//       method: "POST",
+//       body: JSON.stringify({gigId: gig.id}),
+//       headers: headers
+//     })
+//   }
+// }
 
 export function fetchUserPostedGigs(){
   return (dispatch) => {

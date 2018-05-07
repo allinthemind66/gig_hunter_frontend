@@ -1,6 +1,6 @@
 import {api} from '../services/api'
 const headers = api.auth.headers
-
+const ROOT_API = 'http://localhost:3000/api/v1'
 
 export function fetchAllGigs() {
   return (dispatch) => {
@@ -22,6 +22,46 @@ export function fetchGigsForSignedInUser(){
       .then(resp => resp.json())
       .then(gigs => dispatch({ type: 'FETCH_GIGS_FOR_SIGNED_IN_USER', payload: gigs }));
   };
+}
+
+export function addGigApplication(gig){
+  console.log('inside handle apply gig')
+  return (dispatch) => {
+    dispatch({type: "START_ADDING_APPLICATION_TO_USER"})
+    return fetch(`${ROOT_API}/gig_applications`, {
+      method: "POST",
+      body: JSON.stringify({gigId: gig.id}),
+      headers: headers
+    })
+  }
+}
+
+// export function addGigToUser(gig){
+//   debugger
+//   return (dispatch) => {
+//     dispatch({type: 'START_ADDING_GIG_TO_USER'})
+//     return fetch(`${ROOT_API}/user_gigs/`,{
+//       method: 'POST',
+//       body: JSON.stringify(gig),
+//       headers: headers
+//     })
+//     .then(resp => resp.json())
+//     .then(json => dispatch({type: 'ADD_GIG_TO_USER', payload: gig}))
+//   }
+// }
+
+export function removeGigFromUser(gig){
+  // debugger
+  return (dispatch) => {
+    dispatch({type: "START_REMOVING_GIG_FROM_USER"})
+    return fetch(`${ROOT_API}/userGig/delete`, {
+      method: 'DELETE',
+      headers: headers,
+      body: JSON.stringify({gigId: gig.id})
+    })
+    .then(resp => resp.json())
+    .then(gigs => dispatch({type: "REMOVE_GIG_FROM_USER", payload: gig}))
+  }
 }
 
 

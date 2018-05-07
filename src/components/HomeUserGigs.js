@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../actions/userActions'
+import * as gigActions from '../actions/gigsActions'
 import { bindActionCreators } from 'redux'
 import { Link} from "react-router-dom";
 class HomeUserGigs extends React.Component {
@@ -14,7 +15,7 @@ class HomeUserGigs extends React.Component {
       <div>
         <h3>Upcoming Gigs</h3>
         <ul>
-          {this.props.userGigs ? this.props.userGigs.map(gig => <div key={gig.id}><p><Link to={`/gigs/${gig.id}`}>{gig.venue} - {this.parseDate(gig.date)}</Link><button onClick={() => this.props.actions.removeGigFromUser(gig)} className='ui red button'>X</button></p></div>): null}
+          {this.props.userGigs ? this.props.userGigs.map(gig => <div key={gig.id}><p><Link to={`/gigs/${gig.id}`}>{gig.venue} - {this.parseDate(gig.date)}</Link><button onClick={() => this.props.gigActions.removeGigFromUser(gig)} className='ui red button'>X</button></p></div>): null}
         </ul>
         {this.props.userGigs && this.props.userGigs.length === 0 ? <p>You currently Have no Upcoming gigs</p> : null}
       </div>
@@ -27,7 +28,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {actions: bindActionCreators(actions, dispatch)}
+  return {
+    actions: bindActionCreators(actions, dispatch),
+    gigActions: bindActionCreators(gigActions, dispatch)
+  }
 }
 
 
