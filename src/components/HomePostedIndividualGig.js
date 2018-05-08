@@ -76,7 +76,7 @@ class HomePostedIndividualGig extends React.Component {
   render(){
     return(
       <div>
-        <h2>{this.props.gig.venue} - {this.props.gig.date}</h2>
+        <h2><Link to={`/gigs/${this.props.gig.id}`}> {this.props.gig.venue} - {this.props.gig.date}</Link></h2>
         <div>
           <h3>Pending Applications</h3>
           {this.state.applicants.length > 0 ? this.state.applicants.map(user => <div key={user.id}><Link to={`/user/${user.id}`}><p>{user.name}</p></Link><button onClick={() => this.addGigToUser(this.props.gig, user.id)} className="ui green button">Accept</button><button onClick={() => this.denyGig(this.props.gig.id, user)} className="ui red button">Decline</button></div>) : <p>There are currently no applicants for this gig.</p>}

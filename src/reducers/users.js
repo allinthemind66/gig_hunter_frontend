@@ -49,6 +49,11 @@ export default function usersReducer(state = {
       return {...state, allUsers: action.payload, filteredUsers: action.payload,loading: false}
     case("SEARCH_FILTER_FOR_ALL_USERS"):
       return {...state, filteredUsers: state.allUsers.filter(user => user.name.toLowerCase().includes(action.payload.toLowerCase()))}
+    case("START_UPDATING_USER_PROFILE"):
+      return {...state, loading: true}
+    case("UPDATE_USER_PROFILE"):
+    debugger
+      return state
     default:
       return state
   }

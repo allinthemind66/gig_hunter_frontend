@@ -1,5 +1,6 @@
 import React from 'react'
-// import Dropzone from 'react-dropzone'
+import EditProfileModal from './EditProfileModal'
+import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
 import {bindActionCreators} from 'redux'
 import * as actions from '../actions/userActions'
 import { connect } from 'react-redux'
@@ -30,7 +31,7 @@ handleImgSubmit = (data) => {
             options={options}
             onSuccess={this.handleImgSubmit}
           />
-          <button className='ui button'>Edit Profile</button>
+          <EditProfileModal/>
         <h4>{this.props.name}</h4>
       </div>
     )

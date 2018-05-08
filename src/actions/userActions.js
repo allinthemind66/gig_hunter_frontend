@@ -1,6 +1,7 @@
 // import {api} from '../services/api'
 const ROOT_API = 'http://localhost:3000/api/v1'
 let token = localStorage.getItem('token')
+let id = localStorage.getItem('id')
 const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -92,4 +93,16 @@ export function getAllUsers(){
 export function handleSearchForUsers(searchInput){
   debugger
   return {type: "SEARCH_FILTER_FOR_ALL_USERS", payload: searchInput}
+}
+
+export function updateUserProfile(data){
+  return (dispatch) => {
+    dispatch({type: "START_UPDATING_USER_PROFILE"})
+    return fetch(`${ROOT_API}/users/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({data}),
+      headers: headers
+    }).then(resp => resp.json())
+    .then(json => dispatch({type: "UPDATE_USER_PROFILE", payload: json}))
+  }
 }

@@ -8,7 +8,6 @@ class PostGigForm extends React.Component {
     location: '',
     group: '',
     style: '',
-    type: '',
     pay: '',
     concert_dress: '',
     time: '',
@@ -61,8 +60,6 @@ class PostGigForm extends React.Component {
           <input type="text" name="group" value={this.state.group} onChange={this.handleOnChange}/>
           <label>Style Of Music</label>
           <input type="text" name="style" value={this.state.style} onChange={this.handleOnChange}/>
-          <label>Type Of Event</label>
-          <input name="type" value={this.state.type} onChange={this.handleOnChange}/>
           <label>Total Pay($)</label>
           <input type="number" name="pay" value={this.state.pay} onChange={this.handleOnChange}/>
           <label>Concert Dress</label>

@@ -32,7 +32,7 @@ export function addGigApplication(gig){
       method: "POST",
       body: JSON.stringify({gigId: gig.id}),
       headers: headers
-    })
+    }).then(() => dispatch({type: "CREATE_GIG_APPLICATION", payload: gig}))
   }
 }
 
@@ -73,6 +73,17 @@ export function postGig(gig){
       body: JSON.stringify(gig),
       headers: headers
     }).then(resp => resp.json()).then(gigs => dispatch({type: 'FETCH_GIGS', payload: gigs}))
+  }
+}
+
+export function updateGig(gig, gigId){
+  return (dispatch) => {
+    dispatch({type: 'START_UPDATING_GIG'})
+    return fetch(`http://localhost:3000/api/v1/gigs/${gigId}`, {
+      method: 'PATCH',
+      body: JSON.stringify(gig),
+      headers: headers
+    }).then(resp => resp.json()).then(gigs => dispatch({type: 'UPDATE_GIG', payload: gigs}))
   }
 }
 
