@@ -25,13 +25,13 @@ class UserPage extends React.Component {
     return newDate.toDateString()
   }
 
-  
+
   render(){
     return(
-      <div>
+      <div className='userPageAvatarAndBioWrapper'>
       {<UserAvatar user={this.props.user} name={this.props.user.name}/>}
-      <div>
       {<UserBio user={this.props.user}/>}
+      <div>
       {<UserGigs parseDate={this.parseDate} gigs={this.props.user.gigs} />}
       </div>
       </div>

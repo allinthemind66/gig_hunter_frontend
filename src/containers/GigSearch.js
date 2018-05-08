@@ -45,20 +45,19 @@ class GigSearch extends React.Component {
     if(this.props.gigs.length > 0){
       postedGigs = this.props.gigs.filter(gig => gig.user_id != this.props.userData.id).map((gig) => {
         return (
-        <div className="gigSearch">
-          <li key={gig.id}>
+        <div className="gigSearch ui floating message">
+          <div key={gig.id}>
             <button className="ui green button" onClick={() => this.handleApplyGig(gig)}>
               Apply For This Gig!
             </button>
-            {gig.venue} - {this.parseDate(gig.date)}
-            <Link to={`/gigs/${gig.id}`}>Go To Gig Page</Link>
-          </li>
+            <Link to={`/gigs/${gig.id}`}>{gig.venue} - {this.parseDate(gig.date)}</Link>
+          </div>
             User: {gig.user_id} <br/>Description: {gig.description}
-            <hr/>
           </div>)})
     }
     return(
       <div className="main">
+        <div className='gigSearchFilters'>
         <h3>All Gigs</h3>
         <div className="ui category search">
           <div className="ui icon input">
@@ -66,8 +65,11 @@ class GigSearch extends React.Component {
             <i className="search icon"></i>
           </div>
         </div>
+        <div className="gigSearchFiltersButtons">
         <button className='ui button' onClick={this.props.actions.handleSortByDate}>Sort By Date</button>
         <button className='ui button' onClick={this.props.actions.handleSortByVenue}>Sort By Venue</button>
+      </div>
+      </div>
         <ul>
           {postedGigs}
         </ul>

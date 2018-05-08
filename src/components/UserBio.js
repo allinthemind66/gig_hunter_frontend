@@ -2,7 +2,8 @@ import React from 'react'
 const UserBio = (props) => {
 
   return(
-    <div>
+    <div className='ui card bio'>
+      <h3>About {props.user.name}</h3>
       <p>{props.user.bio}</p>
       <p>Hometown: {props.user.hometown}</p>
       <p>Current City: {props.user.city}</p>

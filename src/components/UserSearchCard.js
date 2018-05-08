@@ -11,7 +11,7 @@ const UserSearchCard = (props) => {
       <div class="content">
         <div class="header">{props.user.name}</div>
           <div class="meta">
-            <a>Friends</a>
+            <a>Musician</a>
           </div>
           <div class="description">
             {props.user.bio}

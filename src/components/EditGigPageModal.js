@@ -62,7 +62,7 @@ class ModalExampleScrollingContent extends React.Component {
   }
   render(){
     return(
-      <Modal trigger={<Button onClick={this.handleOpen}>Edit Profile</Button>} open={this.state.modalOpen}
+      <Modal trigger={<Button onClick={this.handleOpen}>Edit Gig...</Button>} open={this.state.modalOpen}
         onClose={this.handleClose}>
       <Modal.Header>Edit Gig</Modal.Header>
       <Modal.Content image scrolling>

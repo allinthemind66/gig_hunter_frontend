@@ -6,8 +6,6 @@ body {
 }
 
 .gigSearch {
-  /* margin-left: 20%;
-  margin-right: 20%; */
   list-style: none;
   background-color: green;
 }
@@ -17,11 +15,32 @@ transform: scale(1.02)
 
 }
 
-
-
 .main {
   margin-left: 25%;
   margin-right: 25%;
+  padding: 4%;
+}
+
+.titleCenter {
+  text-align: center;
+
+}
+
+.gigSearchFilters {
+  text-align: center;
+}
+
+.gigSearchFiltersButtons {
+  padding: 5px;
+}
+
+.gigPageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  
+  padding: 8%;
 }
 
 .navbar {
@@ -60,6 +79,32 @@ transform: scale(1.02)
   padding: 8%;
 }
 
+.userPageAvatarWrapper {
+  display: block;
+  /* margin-left: 10%; */
+  /* padding: 8%; */
+}
+
+.userPageAvatarAndBioWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-left: 15%;
+  padding: 8%;
+}
+
+.gigPageInfoWrapper {
+  display: block;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 8%;
+}
+
+.ui.card.bio {
+  padding: 10px;
+}
+
 .avatar {
   max-width: 300px;
 }
@@ -80,12 +125,15 @@ transform: scale(1.02)
 
 .yourPostedGigData {
   padding: 20px;
-  float: left;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
   margin-right: 10%;
+}
+
+.yourPostedGigData:hover{
+  background-color: #D3D3D3;
 }
 
 .homePostedGigs {
@@ -142,5 +190,8 @@ transform: scale(1.02)
 
 
 .gigPageUserImages {
-  max-width: 100px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: 10px;
 }

@@ -32,7 +32,9 @@ parseDate = (date) => {
   render(){
     return(
       <div>
-        <h2>{this.props.gig.venue}</h2>
+        <div className='gigPageGrid'>
+        <div className="ui message gigPageInfoWrapper">
+          <h2>{this.props.gig.venue}</h2>
         {this.props.gig.user_id == this.props.user.id ? <p><EditGigPageModal fetchGigData={this.props.actions.fetchGigData} pageId={this.props.match.params.id} gig={this.props.gig}/></p> : null}
         <p>Description: {this.props.gig.description}</p>
         <p>Time: {this.props.gig.time}</p>
@@ -42,7 +44,12 @@ parseDate = (date) => {
         <p>Number of Rehearsals: {this.props.gig.rehearsals}</p>
         <p>Concert Dress: {this.props.gig.concert_dress}</p>
         <p>Style: {this.props.gig.style}</p>
-        <h2>People Playing This Gig: {this.props.gig.users ? this.props.gig.users.length : 0}</h2>
+      </div>
+      <div>
+        <div className="mapouter"><div className="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src={`https://maps.google.com/maps?q=${this.props.gig.venue ? this.props.gig.venue + this.props.gig.location: null}&t=&z=13&ie=UTF8&iwloc=&output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><a href="https://www.pureblack.de/webdesign-hannover/"></a></div>
+      </div>
+    </div>
+    <h2>People Playing This Gig: {this.props.gig.users ? this.props.gig.users.length : 0}</h2>
         <ul>
           {this.props.gig.users ? this.props.gig.users.map(user => <Link key={user.id} to={`/user/${user.id}`}><img className='gigPageUserImages' key={user.id} src={user.img_url} alt="user"/></Link>) : null}
         </ul>
