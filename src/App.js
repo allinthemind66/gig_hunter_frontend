@@ -13,6 +13,7 @@ import UserPage from './containers/UserPage'
 import PostGigForm from './containers/PostGigForm'
 import GigSearch from './containers/GigSearch'
 import UserSearch from './containers/UserSearch'
+import Inbox from './containers/Inbox'
 import {api} from './services/api'
 class App extends Component {
 
@@ -40,6 +41,7 @@ class App extends Component {
           <Route exact path="/user/:id" component={UserPage}/>
           <Route exact path="/gigs/:id" component={GigPage}/>
           <Route exact path="/gigSearch" component={GigSearch}/>
+          <Route exact path='/inbox' component={Inbox}/>
           <Route exact path="/" component={Home} />
           <Route exact path="/gig-page" component={GigPage}/>
           <Route exact path="/postGigForm" component={PostGigForm}/>

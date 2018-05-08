@@ -56,28 +56,9 @@ class ModalExampleScrollingContent extends React.Component {
 
   handleSubmit = () => {
     this.props.actions.updateGig(this.state.form, this.props.gig.id)
-    // this.setState({
-    //   form: {
-    //     venue: '',
-    //     location: '',
-    //     group: '',
-    //     style: '',
-    //     type: '',
-    //     pay: '',
-    //     concert_dress: '',
-    //     time: '',
-    //     date: '',
-    //     rehearsals: '',
-    //     description: ''
-    //   },
-    //   modalOpen: false
-    // })
     this.setState({
       modalOpen:false
     })
-    // debugger
-    // const id = this.props.pageId
-    // this.props.fetchGigData(id)
   }
   render(){
     return(
@@ -87,7 +68,6 @@ class ModalExampleScrollingContent extends React.Component {
       <Modal.Content image scrolling>
 
         <Modal.Description>
-          {/* <Header>Modal Header</Header> */}
           <div className="main">
             <h3 className="headline">{this.props.gig.venue}</h3>
             <form onSubmit={this.handleSubmit} className="ui form">
@@ -124,7 +104,6 @@ class ModalExampleScrollingContent extends React.Component {
         </Button>
       </Modal.Actions>
     </Modal>
-
     )
   }
 }

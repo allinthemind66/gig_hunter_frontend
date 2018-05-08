@@ -19,17 +19,19 @@ class Home extends React.Component {
   }
 
   handleRemoveGig = (gig) => {
-    console.log('remove gig has been clicked!')
     this.props.gigActions.removeGigFromUser(gig)
   }
   render(){
-    // debugger
     return(
-      <div><h1>This is the user home page</h1>
-      <p>Welcome {this.props.user.name}</p>
-      {<UserHomeAvatar user={this.props.user}/>}
-      {<HomeUserGigs />}
+      <div className='wrapper'>
+      <div className='userAvatarWrapper'>
+        {<UserHomeAvatar user={this.props.user}/>}
+        <h2>Welcome back {this.props.user.name}!</h2>
+      </div>
+      <div className="userHomeWrapper">
+      {<HomeUserGigs/>}
       {<HomePostedGigs/>}
+      </div>
       </div>
     )
   }

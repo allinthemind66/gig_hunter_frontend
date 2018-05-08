@@ -28,11 +28,8 @@ class SignUp extends React.Component {
       [e.target.name]: e.target.value
     })
   }
-//STOLE FROM LOGIN FORM
   handleOnSubmit = (e) => {
-    console.log(this.props.actions)
     e.preventDefault();
-    console.log("im trying to sign up");
     api.auth.signUp(this.state).then(user => {
       if(user.message){
         this.setState({error: true})

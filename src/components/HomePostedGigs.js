@@ -10,9 +10,8 @@ class HomePostedGigs extends React.Component {
   }
 
   render(){
-    // debugger
     return(
-      <div>
+      <div className="homePostedGigs">
         <h3>Your Posted Gigs</h3>
         <ul>
         {this.props.userPostedGigs.map(gig => <HomePostedIndividualGig gig={gig} key={gig.id}/>)}

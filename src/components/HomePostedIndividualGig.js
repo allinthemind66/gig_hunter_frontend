@@ -7,23 +7,18 @@ class HomePostedIndividualGig extends React.Component {
   state = {
     applicants: [],
     attendees: []
-
   }
 
   componentDidMount(){
     fetch(`http://localhost:3000/api/v1/gigs/${this.props.gig.id}/applicants`)
     .then(resp => resp.json())
-    // .then(json => console.log(json))
     .then(json => this.setState({applicants: json}))
-    // debugger
-
     fetch(`http://localhost:3000/api/v1/gigs/${this.props.gig.id}`)
     .then(resp => resp.json())
     .then(json => this.setState({attendees: json.users}))
   }
 
   addGigToUser = (gig, userId) => {
-    // debugger
     fetch(`http://localhost:3000/api/v1/user_gigs/`,{
           method: 'POST',
           body: JSON.stringify({gigId: gig.id, userId: userId}),
@@ -39,13 +34,10 @@ class HomePostedIndividualGig extends React.Component {
           //figure out how to remove gig from applicants instead of just clearing it.
           applicants: []
         }))
-        // .then(json => console.log(json))
   }
 
   denyGig = (gigId, user) => {
     let i = this.state.applicants.indexOf(user)
-    // this.setState({applicants: this.state.applicants.slice(0, i).concat(this.state.applicants.slice(i+1))})
-    // debugger
     fetch(`http://localhost:3000/api/v1/gig_applications/deleteGigApplication`, {
       method: "DELETE",
       headers: {

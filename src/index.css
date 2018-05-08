@@ -49,6 +49,62 @@ transform: scale(1.02)
     white-space: nowrap;
 }
 
+.userAvatarWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-left: 15%;
+  padding: 8%;
+}
+
+.userHomeWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-left: 15%;
+}
+
+/* .homePostedGigs {
+  margin-left: 30%;
+} */
+
+.ui.category.search.userSearchInput {
+  margin-left: 43%;
+  padding-top: 20px;
+}
+
+
+.userSearchWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-left: 8%;
+  margin-right: 8%;
+  padding: 15px;
+}
+
+.userSearchCard {
+  background-color: white;
+  border-radius: 20%;
+}
+
+.userSearchImage {
+  max-width: 300px;
+  display:block;
+  margin:auto;
+  padding: 8%;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  /* margin-bottom: 5px; */
+  padding-bottom: 10px;
+}
+
 .mb-0, .my-0 {
     margin-bottom: 0!important;
 }

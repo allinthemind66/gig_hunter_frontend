@@ -12,8 +12,12 @@ handleImgSubmit = (data) => {
   render(){
     return(
       <div>
+        <h2>{this.props.name}</h2>
         {this.props.user.img_url ? <img className="avatar" src={this.props.user.img_url} alt="user_img"/> : <img className="avatar" src={require(`../userImgs/defaultImg.png`)} alt="user_img"/>}
-        <h4>{this.props.name}</h4>
+        <div>
+        <button className="ui button">Add Friend <i class="user plus icon"></i></button>
+        <button className='ui button'>Send Message <i class="envelope icon"></i></button>
+      </div>
       </div>
     )
   }

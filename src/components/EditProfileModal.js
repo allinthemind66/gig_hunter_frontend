@@ -17,7 +17,8 @@ class ModalExampleScrollingContent extends React.Component {
       modalOpen: false
     }
   }
-  handleOpen = () => {this.setState({
+  handleOpen = () => {
+    this.setState({
     form: {
       name: this.props.user.name,
       city: this.props.user.city,
@@ -57,7 +58,6 @@ class ModalExampleScrollingContent extends React.Component {
       <Modal.Content image scrolling>
 
         <Modal.Description>
-          {/* <Header>Modal Header</Header> */}
           <div className="main">
             <h3 className="headline">Post Gig</h3>
             <form onSubmit={this.handleSubmit} className="ui form">

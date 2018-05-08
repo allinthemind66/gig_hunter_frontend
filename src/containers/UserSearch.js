@@ -28,13 +28,15 @@ class UserSearch extends React.Component {
 
     return(
       <div>
-        <div className="ui category search">
+        <div className="ui category search userSearchInput">
           <div className="ui icon input">
             <input onChange={this.handleSearchInput} className="prompt" value={this.state.searchInput} type="text" placeholder="Search..."/>
             <i className="search icon"></i>
           </div>
         </div>
-        {this.props.allUsers ? this.props.allUsers.map(user => <div><Link key={user.id} to={`/user/${user.id}`}><img className="avatar" src={user.img_url} alt="user"/></Link><p>{user.name}</p></div>) : null}
+        <div className="userSearchWrapper">
+        {this.props.allUsers ? this.props.allUsers.map(user => <div className="userSearchCard"><Link key={user.id} to={`/user/${user.id}`}><img className="userSearchImage" src={user.img_url} alt="user"/></Link><p className="subtitle">{user.name}</p></div>) : null}
+        </div>
       </div>
     )
   }
