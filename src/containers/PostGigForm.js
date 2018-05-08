@@ -72,7 +72,7 @@ class PostGigForm extends React.Component {
           <input type="number" name="rehearsals" value={this.state.rehearsals} onChange={this.handleOnChange}/>
           <label>Description</label>
           <textarea type="text-area" name="description" value={this.state.description} onChange={this.handleOnChange}/>
-          <input type='submit'/>
+          <input type='submit' className='ui button'/>
         </form>
       </div>
     )

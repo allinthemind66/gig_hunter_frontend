@@ -17,6 +17,8 @@ transform: scale(1.02)
 
 }
 
+
+
 .main {
   margin-left: 25%;
   margin-right: 25%;
@@ -58,6 +60,16 @@ transform: scale(1.02)
   padding: 8%;
 }
 
+.avatar {
+  max-width: 300px;
+}
+
+.userAvatarPhoto {
+  border-style: solid;
+  border-color: white;
+  border-radius: 5px;
+}
+
 .userHomeWrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -66,9 +78,19 @@ transform: scale(1.02)
   margin-left: 15%;
 }
 
-/* .homePostedGigs {
-  margin-left: 30%;
-} */
+.yourPostedGigData {
+  padding: 20px;
+  float: left;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-right: 10%;
+}
+
+.homePostedGigs {
+  display: block;
+}
 
 .ui.category.search.userSearchInput {
   margin-left: 43%;
@@ -84,6 +106,7 @@ transform: scale(1.02)
   margin-left: 8%;
   margin-right: 8%;
   padding: 15px;
+
 }
 
 .userSearchCard {
@@ -117,10 +140,6 @@ transform: scale(1.02)
   cursor: pointer;
 }
 
-.avatar {
-  max-width: 300px;
-
-}
 
 .gigPageUserImages {
   max-width: 100px;

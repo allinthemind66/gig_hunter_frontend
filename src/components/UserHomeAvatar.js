@@ -22,7 +22,9 @@ handleImgSubmit = (data) => {
     };
     return(
       <div className='userAvatar'>
-        {this.props.user.img_url ? <img className="avatar" src={this.props.user.img_url} alt="user_img"/> : <img className="avatar" src={require(`../userImgs/defaultImg.png`)} alt="user_img"/>}
+        <div>
+        {this.props.user.img_url ? <img className="avatar userAvatarPhoto" src={this.props.user.img_url} alt="user_img"/> : <img className="avatar" src={require(`../userImgs/defaultImg.png`)} alt="user_img"/>}
+      </div>
         <br/>
           <ReactFilestack
             apikey={'Azn8tUJWMSDmfE1HYLWB9z'}
