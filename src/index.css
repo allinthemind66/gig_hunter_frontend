@@ -31,6 +31,18 @@ transform: scale(1.02)
   text-align: center;
 }
 
+.loginForm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  padding: 8%;
+}
+
+.gridColumn2 {
+  grid-column: 2;
+}
+
 .gigSearchFiltersButtons {
   padding: 5px;
 }
@@ -75,6 +87,12 @@ transform: scale(1.02)
 .gigHunterLogo {
   color: white;
 }
+
+.center{
+  text-align: center;
+}
+
+
 
 .userAvatarWrapper {
   display: grid;
@@ -155,10 +173,10 @@ transform: scale(1.02)
 .userSearchWrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 20px;
   grid-auto-rows: minmax(100px, auto);
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-left: 12%;
+  /* margin-right: 8%; */
   padding: 15px;
 
 }

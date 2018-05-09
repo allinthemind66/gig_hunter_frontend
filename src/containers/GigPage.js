@@ -49,10 +49,12 @@ parseDate = (date) => {
         <div className="mapouter"><div className="gmap_canvas"><iframe title="gig-map" width="600" height="500" id="gmap_canvas" src={`https://maps.google.com/maps?q=${this.props.gig.venue ? this.props.gig.venue + this.props.gig.location: null}&t=&z=13&ie=UTF8&iwloc=&output=embed`} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
       </div>
     </div>
-    <h2>People Playing This Gig: {this.props.gig.users ? this.props.gig.users.length : 0}</h2>
+      <div className="center">
+        <h2>People Playing This Gig: {this.props.gig.users ? this.props.gig.users.length : 0}</h2>
         <ul>
           {this.props.gig.users ? this.props.gig.users.map(user => <Link key={user.id} to={`/user/${user.id}`}><img className='gigPageUserImages' key={user.id} src={user.img_url} alt="user"/></Link>) : null}
         </ul>
+      </div>
       </div>
     )
   }

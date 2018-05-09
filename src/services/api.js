@@ -23,7 +23,6 @@ const login = (data) => {
 }
 
 const signUp = (data) => {
-  debugger
   return fetch(`${API_ROOT}/signup`, {
     method: "POST",
     headers: {

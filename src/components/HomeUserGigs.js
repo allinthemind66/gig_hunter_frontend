@@ -15,7 +15,7 @@ class HomeUserGigs extends React.Component {
       <div className='homeUserGigs'>
         <h3>Upcoming Gigs</h3>
         <ul>
-          {this.props.userGigs ? this.props.userGigs.map(gig => <div key={gig.id}><p><Link to={`/gigs/${gig.id}`}>{gig.venue} - {this.parseDate(gig.date)}</Link>{/*<button onClick={() => this.props.gigActions.removeGigFromUser(gig)}>*/}<i onClick={() => this.props.gigActions.removeGigFromUser(gig)} className="trash icon"></i></p></div>): null}
+          {this.props.userGigs ? this.props.userGigs.map(gig => <div key={gig.id}><p><Link to={`/gigs/${gig.id}`}>{gig.venue} - {this.parseDate(gig.date)}</Link>{/*<button onClick={() => this.props.gigActions.removeGigFromUser(gig)}>*/}<i onClick={() => this.props.gigActions.removeGigFromUser(gig, this.props.user.id)} className="trash icon"></i></p></div>): null}
         </ul>
         {this.props.userGigs && this.props.userGigs.length === 0 ? <p>You currently Have no Upcoming gigs</p> : null}
       </div>

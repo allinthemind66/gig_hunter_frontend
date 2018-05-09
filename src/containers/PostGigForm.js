@@ -49,7 +49,8 @@ class PostGigForm extends React.Component {
 
   render(){
     return(
-      <div className="main">
+      <div className="main loginForm">
+        <div className="gridColumn2">
         <h3 className="titleCenter">Post Gig</h3>
         <form onSubmit={this.handleSubmit} className="ui form">
           <label>Venue</label>
@@ -74,6 +75,7 @@ class PostGigForm extends React.Component {
           <textarea type="text-area" name="description" value={this.state.description} placeholder="Description of gig..." onChange={this.handleOnChange}/>
           <input type='submit' className='ui button'/>
         </form>
+      </div>
       </div>
     )
   }

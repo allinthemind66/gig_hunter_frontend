@@ -33,9 +33,13 @@ class Login extends React.Component {
 
   render(){
     return(
-      <div>
-        <h2>Welcome Back!</h2>
-        <Link className="ui button" to='/signUp'>Sign Up?</Link>
+      <div className="loginForm">
+        <div className='gridColumn2'>
+          <div className='center'>
+          <h1>Gig Hunter</h1>
+          <h2>Welcome Back!</h2>
+          <Link className="ui button" to='/signUp'>Sign Up?</Link>
+        </div>
         <h3>Sign In!</h3>
         {this.state.error ? <p>There is an error</p> : null}
         <form onSubmit={this.handleOnSubmit} className="ui form">
@@ -43,8 +47,9 @@ class Login extends React.Component {
           <input type="text" name="username" value={this.state.username} onChange={this.handleOnChange}/>
           <label>Password</label>
           <input type="password" name="password" value={this.state.password} onChange={this.handleOnChange}/>
-          <input type="submit"/>
+          <input className='ui button formSubmitButton' type="submit"/>
         </form>
+      </div>
       </div>
     )
   }
