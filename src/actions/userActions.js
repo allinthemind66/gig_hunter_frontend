@@ -19,6 +19,15 @@ export function fetchUserData(id) {
   };
 }
 
+export function fetchUserFriendRequests(){
+  return (dispatch) => {
+    dispatch({type: "START_FETCHING_USER_FRIEND_REQUESTS"});
+    return fetch(`${ROOT_API}/friend_requests`)
+    .then(resp => resp.json())
+    .then(requests => dispatch({type: "GET_FRIEND_REQUESTS", payload: requests}))
+  }
+}
+
 // export function addGigToUser(gig){
 //   debugger
 //   return (dispatch) => {

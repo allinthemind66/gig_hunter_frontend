@@ -1,13 +1,12 @@
 export default function usersReducer(state = {
-  // username: null,
-  // loggedIn: false,
   loading: false,
   userImg: '',
   userData: {},
   userGigs: [],
   userPostedGigs: [],
   allUsers: [],
-  filteredUsers: []
+  filteredUsers: [],
+  friendRequests: []
 }, action){
 
   switch(action.type){
@@ -15,9 +14,13 @@ export default function usersReducer(state = {
       return Object.assign({}, state, {loading: true})
       // return {...this.state}
     case 'FETCH_USER':
-      // debugger
       return Object.assign({}, state, {loading: false, userData: action.payload, userGigs: action.payload.gigs})
       // return {...this.state}
+    case('START_FETCHING_USER_FRIEND_REQUESTS'):
+      return {...state, loading: true}
+    case('GET_FRIEND_REQUESTS'):
+      debugger
+      return {...state, loading: false, friendRequests: action.payload}
     case "START_ADDING_GIG_TO_USER":
       return {...state, loading: true}
     // case "ADD_GIG_TO_USER":
@@ -52,7 +55,6 @@ export default function usersReducer(state = {
     case("START_UPDATING_USER_PROFILE"):
       return {...state, loading: true}
     case("UPDATE_USER_PROFILE"):
-    debugger
       return state
     default:
       return state

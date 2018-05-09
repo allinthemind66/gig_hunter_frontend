@@ -4,7 +4,8 @@ import UserHomeAvatar from '../components/UserHomeAvatar'
 // import HomePostedGigs from '../components/HomePostedGigs'
 import HomeGigsMenu from './HomeGigsMenu'
 import * as actions from '../actions/userActions'
-// import * as gigActions from '../actions/gigsActions'
+import * as gigActions from '../actions/gigsActions'
+import * as friendsActions from '../actions/friendsActions'
 import {bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 class Home extends React.Component {
@@ -16,6 +17,7 @@ class Home extends React.Component {
     else {
       let id = localStorage.getItem('id')
       this.props.actions.fetchUserData(id)
+      // this.props.actions.fetchUserFriendRequests()
     }
   }
 
@@ -36,11 +38,7 @@ class Home extends React.Component {
         <p>Rating: 4.5</p>
       </div>
       </div>
-      {/* <div className="userHomeWrapper"> */}
       {<HomeGigsMenu/>}
-      {/* {<HomeUserGigs/>}
-      {<HomePostedGigs/>} */}
-      {/* </div> */}
       </div>
     )
   }

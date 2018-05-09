@@ -2,7 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: rgb(218, 237, 246);
+  /* background-color: rgb(218, 237, 246); */
+  background-color: #E9EBEE
 }
 
 .gigSearch {
@@ -16,8 +17,8 @@ transform: scale(1.02)
 }
 
 .main {
-  margin-left: 25%;
-  margin-right: 25%;
+  /* margin-left: 25%;
+  margin-right: 25%; */
   padding: 4%;
 }
 
@@ -39,7 +40,7 @@ transform: scale(1.02)
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
-  
+
   padding: 8%;
 }
 
@@ -57,7 +58,8 @@ transform: scale(1.02)
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: .5rem 1rem;
-    background-color: #FF5E5B
+    /* background-color: #FF5E5B */
+    background-color: #4469B0;
 }
 
 .navbar-brand {
@@ -68,6 +70,10 @@ transform: scale(1.02)
     font-size: 1.25rem;
     line-height: inherit;
     white-space: nowrap;
+}
+
+.gigHunterLogo {
+  color: white;
 }
 
 .userAvatarWrapper {

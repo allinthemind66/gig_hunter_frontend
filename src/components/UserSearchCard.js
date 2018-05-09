@@ -1,7 +1,6 @@
 import React from 'react'
 
 const UserSearchCard = (props) => {
-  debugger
   return(
     <div class="ui link cards">
       <div class="card">
