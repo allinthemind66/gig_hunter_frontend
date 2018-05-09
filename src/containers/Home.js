@@ -1,10 +1,10 @@
 import React from 'react'
-import HomeUserGigs from '../components/HomeUserGigs'
+// import HomeUserGigs from '../components/HomeUserGigs'
 import UserHomeAvatar from '../components/UserHomeAvatar'
-import HomePostedGigs from '../components/HomePostedGigs'
+// import HomePostedGigs from '../components/HomePostedGigs'
 import HomeGigsMenu from './HomeGigsMenu'
 import * as actions from '../actions/userActions'
-import * as gigActions from '../actions/gigsActions'
+// import * as gigActions from '../actions/gigsActions'
 import {bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 class Home extends React.Component {

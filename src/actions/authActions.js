@@ -1,6 +1,6 @@
 import {api} from '../services/api'
-const API_ROOT = 'http://localhost:3000/api/v1'
-const headers = api.auth.headers
+// const API_ROOT = 'http://localhost:3000/api/v1'
+// const headers = api.auth.headers
 
 export function handleLogin(data){
   return {type: "LOGIN_USER", payload: data}

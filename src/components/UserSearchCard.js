@@ -6,7 +6,7 @@ const UserSearchCard = (props) => {
     <div class="ui link cards">
       <div class="card">
         <div class="image">
-          <img src={props.user.img_url}/>
+          <img src={props.user.img_url} alt='user'/>
         </div>
       <div class="content">
         <div class="header">{props.user.name}</div>

@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/authActions'
-import {api} from '../services/api'
+// import {api} from '../services/api'
 class Navbar extends React.Component {
   render(){
     return(

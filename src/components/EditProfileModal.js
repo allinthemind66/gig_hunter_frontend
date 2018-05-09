@@ -1,6 +1,6 @@
-import _ from 'lodash'
+// import _ from 'lodash'
 import React from 'react'
-import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
+import { Button, Icon, Modal } from 'semantic-ui-react'
 import {bindActionCreators} from 'redux'
 import * as actions from '../actions/userActions'
 import { connect } from 'react-redux'

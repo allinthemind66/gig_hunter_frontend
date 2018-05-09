@@ -1,6 +1,6 @@
 import React from 'react'
 import EditProfileModal from './EditProfileModal'
-import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
+// import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
 import {bindActionCreators} from 'redux'
 import * as actions from '../actions/userActions'
 import { connect } from 'react-redux'
