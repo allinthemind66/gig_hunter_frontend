@@ -22,9 +22,36 @@ export function fetchUserData(id) {
 export function fetchUserFriendRequests(){
   return (dispatch) => {
     dispatch({type: "START_FETCHING_USER_FRIEND_REQUESTS"});
-    return fetch(`${ROOT_API}/friend_requests`)
+    return fetch(`${ROOT_API}/friend_requests`, {
+      headers: headers
+    })
     .then(resp => resp.json())
     .then(requests => dispatch({type: "GET_FRIEND_REQUESTS", payload: requests}))
+  }
+}
+
+export function acceptFriendRequest(user){
+  return (dispatch) => {
+    dispatch({type: "START_ACCEPTING_FRIEND_REQUEST"});
+    return fetch(`${ROOT_API}/friendships`, {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(user)
+    })
+    .then(resp => resp.json())
+    .then(friend => dispatch({type: "ACCEPT_FRIEND_REQUEST", payload: friend }))
+  }
+}
+
+export function fetchUserFriends(){
+  return (dispatch) => {
+    dispatch({type: "START_FETCHING_USER_FRIENDS"})
+    return fetch(`${ROOT_API}/friendships`,{
+      method: "GET",
+      headers: headers
+    })
+    .then(resp => resp.json())
+    .then(friends => dispatch({type: "FETCH_USER_FRIENDS", payload: friends}))
   }
 }
 

@@ -2,12 +2,20 @@ import React from 'react'
 import { Dropdown, Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Link} from "react-router-dom";
 import * as userActions from '../actions/userActions'
 
 class FriendRequestDropdown extends React.Component {
 
   handleFriendRequests = () => {
     this.props.userActions.fetchUserFriendRequests()
+  }
+
+  acceptFriendRequest = (friend) => {
+    this.props.userActions.acceptFriendRequest(friend)
+  }
+
+  declineFriendRequest = () => {
 
   }
 
@@ -16,6 +24,7 @@ class FriendRequestDropdown extends React.Component {
       <Dropdown onClick={this.handleFriendRequests} text='Friend Requests' pointing className='ui blue button'>
         <Dropdown.Menu>
           <Dropdown.Header>Friend Requests</Dropdown.Header>
+          {this.props.friendRequests.length > 0 ? this.props.friendRequests.map(friend => <Dropdown.Item><Dropdown.Item><Link to={`/user/${friend.id}`}> {friend.name}</Link> <button onClick={() => this.acceptFriendRequest(friend)} className="ui green button">Accept</button><button className="ui red button">Decline</button></Dropdown.Item></Dropdown.Item>) : null}
           {/* <Dropdown.Item>
             <Dropdown text='Clothing'>
             <Dropdown.Menu>
@@ -32,7 +41,7 @@ class FriendRequestDropdown extends React.Component {
           </Dropdown.Menu>
         </Dropdown>
       </Dropdown.Item> */}
-      <Dropdown.Item>Rick Nilon <button className="ui green button">Accept</button><button className="ui red button">Decline</button></Dropdown.Item>
+      {/* <Dropdown.Item>Rick Nilon <button className="ui green button">Accept</button><button className="ui red button">Decline</button></Dropdown.Item> */}
       {/* <Dropdown.Item>Bedroom</Dropdown.Item> */}
     </Dropdown.Menu>
   </Dropdown>

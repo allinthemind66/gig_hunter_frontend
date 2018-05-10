@@ -57,7 +57,7 @@ class SignUp extends React.Component {
           <label>Username</label>
           <input type="text" name="username" value={this.state.username} onChange={this.handleOnChange}/>
           <label>Password</label>
-          <input type="text" name="password" value={this.state.password} onChange={this.handleOnChange}/>
+          <input type="password" name="password" value={this.state.password} onChange={this.handleOnChange}/>
           <label>City</label>
           <input type="text" name="city" value={this.state.city} onChange={this.handleOnChange}/>
           <label>Primary Instrument</label>

@@ -12,9 +12,9 @@ const UserSearchCard = (props) => {
           <div class="meta">
             <a>Musician</a>
           </div>
-          <div class="description">
+          {/* <div class="description">
             {props.user.bio}
-          </div>
+          </div> */}
         </div>
         <div class="extra content">
           <span class="right floated">

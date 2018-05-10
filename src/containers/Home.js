@@ -17,7 +17,8 @@ class Home extends React.Component {
     else {
       let id = localStorage.getItem('id')
       this.props.actions.fetchUserData(id)
-      // this.props.actions.fetchUserFriendRequests()
+      this.props.actions.fetchUserFriends()
+      this.props.actions.fetchUserFriendRequests()
     }
   }
 

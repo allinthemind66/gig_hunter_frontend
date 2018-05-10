@@ -160,6 +160,17 @@ transform: scale(1.02)
   background-color: #D3D3D3;
 }
 
+
+.userFriends {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-right: 10%;
+  padding: 20px;
+
+}
+
 .homePostedGigs {
   display: block;
 }
@@ -175,7 +186,7 @@ transform: scale(1.02)
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   grid-auto-rows: minmax(100px, auto);
-  margin-left: 12%;
+  margin-left: 8%;
   /* margin-right: 8%; */
   padding: 15px;
 
@@ -218,4 +229,8 @@ transform: scale(1.02)
   height: 100px;
   border-radius: 50%;
   padding: 10px;
+}
+
+.gigPageUserFriendsDiv {
+  text-align: center;
 }

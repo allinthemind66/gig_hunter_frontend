@@ -7,6 +7,9 @@ import SendMessageModal from './SendMessageModal'
 class UserAvatar extends React.Component {
 
 
+
+componentDidMount = () => {
+}
 handleImgSubmit = (data) => {
   this.props.actions.sendImageToController(data)
 }
@@ -16,6 +19,30 @@ handleFriendRequest = () => {
 }
 
   render(){
+    
+    debugger
+    let renderAddFriendButton = ()=> {
+      if(this.props.userFriends.length > 0 && this.props.userFriends.find(userFriend => userFriend.id === this.props.user.id)){
+        return (<button className="ui button">Already Friends <i class="check icon"></i></button>)
+      }
+      else if (this.props.friendRequests.length > 0 && this.props.friendRequests.find(userFriend => userFriend.user_id === this.props.user.id)) {
+        return (<button className="ui button">Friend Request Sent <i class="user plus icon"/></button>)
+      }
+
+      else if (this.props.user.id !== this.props.userData.id) {
+        debugger
+        return (
+          <p></p>
+
+        )
+      }
+      else{
+        return(
+          <button className="ui button" onClick={this.handleFriendRequest}>Add Friend <i class="user plus icon"></i></button>
+
+        )
+      }
+    }
     return(
       <div className="userPageAvatarWrapper">
         <h2>{this.props.name}</h2>
@@ -28,7 +55,9 @@ handleFriendRequest = () => {
           </div>
         </div>
         <div>
-        <button className="ui button" onClick={this.handleFriendRequest}>Add Friend <i class="user plus icon"></i></button>
+          {renderAddFriendButton()}
+          {/* {this.props.userFriends.length > 0 ? this.props.userFriends.find(userFriend => userFriend.id === this.props.user.id ? <button className="ui button" onClick={this.handleFriendRequest}>Add Friend <i class="user plus icon"></i></button> : <button className="ui button" onClick={this.handleFriendRequest}>Already Friends <i class="user plus icon"></i></button>) : null} */}
+        {/* <button className="ui button" onClick={this.handleFriendRequest}>Add Friend <i class="user plus icon"></i></button> */}
         {/* <button className='ui button'>Send Message <i class="envelope icon"></i></button> */}
         <SendMessageModal/>
       </div>
@@ -44,4 +73,12 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(UserAvatar)
+const mapStateToProps = (state) => {
+  return {
+    userData: state.users.userData,
+    userFriends: state.users.friends,
+    friendRequests: state.users.friendRequests
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserAvatar)

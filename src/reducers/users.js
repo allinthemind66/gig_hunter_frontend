@@ -6,28 +6,30 @@ export default function usersReducer(state = {
   userPostedGigs: [],
   allUsers: [],
   filteredUsers: [],
-  friendRequests: []
+  friendRequests: [],
+  friends: []
 }, action){
 
   switch(action.type){
     case 'START_FETCHING_USER_DATA_REQUEST':
       return Object.assign({}, state, {loading: true})
-      // return {...this.state}
     case 'FETCH_USER':
       return Object.assign({}, state, {loading: false, userData: action.payload, userGigs: action.payload.gigs})
-      // return {...this.state}
     case('START_FETCHING_USER_FRIEND_REQUESTS'):
       return {...state, loading: true}
     case('GET_FRIEND_REQUESTS'):
-      debugger
       return {...state, loading: false, friendRequests: action.payload}
     case "START_ADDING_GIG_TO_USER":
       return {...state, loading: true}
-    // case "ADD_GIG_TO_USER":
-    // // debugger
-    // //DONT ADD MULTIPLE
-    // // state.userGigs.find(gig => gig.id === action.payload.id) === undefined ? [...state.userGigs, action.payload] : [...state.userGigs]
-    //   return {...state, loading: false, userGigs: [...state.userGigs, action.payload]}
+    case("START_ACCEPTING_FRIEND_REQUEST"):
+      return {...state, loading: true}
+    case("ACCEPT_FRIEND_REQUEST"):
+    debugger
+      return {...state, loading: false, friends: [...state.friends, action.payload]}
+    case("START_FETCHING_USER_FRIENDS"):
+      return {...state, loading: true}
+    case("FETCH_USER_FRIENDS"):
+      return {...state, loading: false, friends: action.payload}
     case "START_REMOVING_GIG_FROM_USER":
       return {...state, loading: true}
     case "REMOVE_GIG_FROM_USER":
@@ -37,10 +39,6 @@ export default function usersReducer(state = {
       return {...state, loading:true}
     case "ADD_IMG_TO_USER":
       return {...state, userData: action.payload, loading: false}
-    // case("START_ADDING_APPLICATION_TO_USER"):
-    //   return {...state, loading: true}
-    // case("CREATE_GIG_APPLICATION"):
-    //   return state
     case("START_GETTING_USERS_POSTED_GIGS"):
       return {...state, loading: true}
     case("ADD_USERS_POSTED_GIGS_TO_USER"):
