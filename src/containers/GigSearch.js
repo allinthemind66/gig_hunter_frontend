@@ -50,7 +50,7 @@ class GigSearch extends React.Component {
             <button className="ui green button" onClick={() => this.handleApplyGig(gig)}>
               Apply For This Gig!
             </button>
-            <Link to={`/gigs/${gig.id}`}>{gig.venue} - {this.parseDate(gig.date)}</Link>
+            <Link to={`/gigs/${gig.id}`}>{gig.venue}</Link>
           </div>
             User: {gig.user_id} <br/>Description: {gig.description}
           </div>)})

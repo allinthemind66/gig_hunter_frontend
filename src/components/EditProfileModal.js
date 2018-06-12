@@ -59,7 +59,7 @@ class ModalExampleScrollingContent extends React.Component {
 
         <Modal.Description>
           <div className="main">
-            <h3 className="headline">Post Gig</h3>
+            <h3 className="headline">Edit Profile</h3>
             <form onSubmit={this.handleSubmit} className="ui form">
               <label>Name</label>
               <input type="text" value={this.state.form.name} name="name" onChange={this.handleOnChange}/>

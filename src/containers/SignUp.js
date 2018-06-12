@@ -49,7 +49,7 @@ class SignUp extends React.Component {
           <div className="center">
         <h1>Welcome To Gig Hunter</h1>
         <h2>Sign Up!</h2>
-        <Link className='ui button' to='/login'>Login?</Link>
+        <Link className='ui blue button' to='/login'>Login?</Link>
       </div>
         <form onSubmit={this.handleOnSubmit} className="ui form">
           <label>Name</label>
@@ -64,7 +64,7 @@ class SignUp extends React.Component {
           <input type="text" name="primaryInstrument" value={this.state.primaryInstrument} onChange={this.handleOnChange}/>
           <label>Secondary Instrument</label>
           <input type="text" name="secondaryInstrument" value={this.state.secondaryInstrument} onChange={this.handleOnChange}/>
-          <input className='ui button' type="submit"/>
+          <input className='ui blue button' type="submit"/>
         </form>
       </div>
       </div>
