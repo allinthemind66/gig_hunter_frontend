@@ -8,6 +8,7 @@ export default (state = {
     // debugger
       localStorage.setItem('token', action.payload.jwt)
       localStorage.setItem('id', action.payload.id)
+      
       return newState
     case("START_LOGGING_OUT_USER"):
       return {...state, loading: false}
