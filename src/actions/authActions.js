@@ -1,5 +1,5 @@
 import {api} from '../services/api'
-// const API_ROOT = 'http://localhost:3000/api/v1'
+// const API_ROOT = 'https://agile-tor-43621.herokuapp.com/api/v1'
 // const headers = api.auth.headers
 
 export function handleLogin(data){

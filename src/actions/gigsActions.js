@@ -1,11 +1,11 @@
 import {api} from '../services/api'
 const headers = api.auth.headers
-const ROOT_API = 'http://localhost:3000/api/v1'
+const ROOT_API = 'https://agile-tor-43621.herokuapp.com/api/v1'
 
 export function fetchAllGigs() {
   return (dispatch) => {
     dispatch({ type: 'START_FETCHING_GIGS_REQUEST' });
-    return fetch('http://localhost:3000/api/v1/gigs')
+    return fetch('https://agile-tor-43621.herokuapp.com/api/v1/gigs')
       .then(resp => resp.json())
       .then(gigs => dispatch({ type: 'FETCH_GIGS', payload: gigs }));
   };
@@ -14,7 +14,7 @@ export function fetchAllGigs() {
 export function fetchGigsForSignedInUser(){
   return (dispatch) => {
     dispatch({ type: 'START_FETCHING_GIGS_REQUEST' });
-    return fetch('http://localhost:3000/api/v1/gigs/signedInGigs', {
+    return fetch('https://agile-tor-43621.herokuapp.com/api/v1/gigs/signedInGigs', {
       method: "POST",
       body: JSON.stringify({token: localStorage.getItem('token')}),
       headers: headers
@@ -68,7 +68,7 @@ export function removeGigFromUser(gig, userId){
 export function postGig(gig){
   return (dispatch) => {
     dispatch({type: 'START_POSTING_GIG'})
-    return fetch('http://localhost:3000/api/v1/gigs', {
+    return fetch('https://agile-tor-43621.herokuapp.com/api/v1/gigs', {
       method: 'POST',
       body: JSON.stringify(gig),
       headers: headers
@@ -79,7 +79,7 @@ export function postGig(gig){
 export function updateGig(gig, gigId){
   return (dispatch) => {
     dispatch({type: 'START_UPDATING_GIG'})
-    return fetch(`http://localhost:3000/api/v1/gigs/${gigId}`, {
+    return fetch(`https://agile-tor-43621.herokuapp.com/api/v1/gigs/${gigId}`, {
       method: 'PATCH',
       body: JSON.stringify(gig),
       headers: headers
@@ -90,7 +90,7 @@ export function updateGig(gig, gigId){
 export function fetchGigData(gigId){
   return (dispatch) => {
     dispatch({type: "START_FETCHING_GIG"})
-    return fetch(`http://localhost:3000/api/v1/gigs/${gigId}`)
+    return fetch(`https://agile-tor-43621.herokuapp.com/api/v1/gigs/${gigId}`)
     .then(resp => resp.json())
     .then(gig => dispatch({type: 'FETCH_GIG', payload: gig}))
   }

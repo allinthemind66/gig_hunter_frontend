@@ -1,5 +1,5 @@
 // import {api} from '../services/api'
-const ROOT_API = 'http://localhost:3000/api/v1'
+const ROOT_API = 'https://agile-tor-43621.herokuapp.com/api/v1'
 let token = localStorage.getItem('token')
 let id = localStorage.getItem('id')
 const headers = {

@@ -1,4 +1,4 @@
-const API_ROOT = 'http://localhost:3000/api/v1'
+const API_ROOT = 'https://agile-tor-43621.herokuapp.com/api/v1'
 
 let token = localStorage.getItem('token')
 const headers = {
