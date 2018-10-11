@@ -10,7 +10,7 @@ class UserPage extends React.Component {
 
   componentDidMount = () => {
     const token = localStorage.getItem('token')
-    if(!token){
+    if(!token || token == "undefined"){
       this.props.history.push('/login')
     }
     else{
